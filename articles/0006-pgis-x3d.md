@@ -162,11 +162,11 @@ SELECT '<!DOCTYPE html>
 
 これで生成された2.htmlをブラウザで見てみます。
 
-![真上から見た立方体](https://storage.googleapis.com/zenn-user-upload/8bdyk2l8wtvzdbqzeqwqxdkcdeb1)
+![真上から見た立方体](https://storage.googleapis.com/zenn-user-upload/a5d741idyyv5eyhfccdaee2rk9q0)
 
 2次元の四角形に見えますが、ドラッグすると、立方体であることが分かります。
 
-![斜めから見た立方体](https://storage.googleapis.com/zenn-user-upload/ljhbkom7d59496mjey31dgmhqg7v)
+![斜めから見た立方体](https://storage.googleapis.com/zenn-user-upload/37r1kxed5n0vu79uby6avypdawnh)
 
 # おわりに
 

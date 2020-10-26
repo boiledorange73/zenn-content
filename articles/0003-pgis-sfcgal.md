@@ -93,7 +93,7 @@ db=# SELECT ST_AsText(ST_StraightSkeleton('POLYGON((0 0, 50 0, 50 10, 10 10, 10 
 
 図示すると、次のようなかんじです。
 
-![ST_StraightSkeletonの結果](https://storage.googleapis.com/zenn-user-upload/ffeeq1r8ppbv3y3yhyp7i3i7b4i9)
+![ST_StraightSkeletonの結果](https://storage.googleapis.com/zenn-user-upload/l21diuwicu4zxischsz076sr2zzo)
 
 ここで、藍色に塗りつぶされた面が元のポリゴン、オレンジの線がST_StraightSkeletonで出されたマルチラインストリングです。
 
@@ -151,11 +151,11 @@ db=# SELECT ST_AsText(ST_MinkowskiSum(
 
 図で示してみます。第1引数が水色の三角形、第2引数が赤い四角形です。
 
-![ミンコフスキー和の引数](https://storage.googleapis.com/zenn-user-upload/llbr1bgidx373ocrkzwyw0rmt92s)
+![ミンコフスキー和の引数](https://storage.googleapis.com/zenn-user-upload/o50e7d9eampo1zkn4gdso27vuxer)
 
 結果は次のようになります。
 
-![ミンコフスキー和の結果](https://storage.googleapis.com/zenn-user-upload/aj4wjng8tr7rts9ue3zrfioctirz)
+![ミンコフスキー和の結果](https://storage.googleapis.com/zenn-user-upload/ddvrq2ayxji4z0l8r0bv21takn13)
 
 ### ミンコフスキー和
 

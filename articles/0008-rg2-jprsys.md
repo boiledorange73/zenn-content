@@ -29,13 +29,13 @@ UPDATE g_jpr SET syscode=1
 
 「北方北緯32度南方北緯27度西方東経128度18分東方東経130度を境界線とする区域」は``POLYGON((128.3 27, 130 27, 130 32, 128.3 32, 128.3 27))``となります。これをQGISに描画すると次のようになります。
 
-![I系領域の一部](https://storage.googleapis.com/zenn-user-upload/462izde3mfi1xogo7pwojg1k0ivq)
+![I系領域の一部](https://storage.googleapis.com/zenn-user-upload/69s53n35lnv7v6cw2rfv7bbuzjgr)
 
 鹿児島県喜界町の島がオーバラップしてしまっています。これが「（奄美群島は東経130度13分までを含む。)」をつけている理由のようです。
 
 ``POLYGON((128.3 27, 130.22 27, 130.22 29, 128.3 29, 128.3 27))``を表示してみます。
 
-![奄美群島の領域](https://storage.googleapis.com/zenn-user-upload/au1elld1f1pn3kjv5ri2n5qy28hj)
+![奄美群島の領域](https://storage.googleapis.com/zenn-user-upload/24vgnovkuld9vrd5emfbhvkjbuvw)
 
 喜界町の島がすっぽり入りました。
 
@@ -255,33 +255,33 @@ XI系またはXIII系を指定する際の``WHERE``節に間違いがあって�
 
 ここで、レイヤペインのg_jprレイヤを右クリックでおさえてコンテキストメニューを出し、「プロパティ」を選択します。
 
-![g_jprのコンテキストメニューを出しているところ](https://storage.googleapis.com/zenn-user-upload/j6nlx8jvc5fglb6xrna7gx8dsn2v)
+![g_jprのコンテキストメニューを出しているところ](https://storage.googleapis.com/zenn-user-upload/zfl0a163nsl1yqw9thjop177ixl6)
 
 「レイヤプロパティ」ダイアログが表示されるので、左側のタブを「スタイル」にして、左上隅の「共通シンボル」となっているところを「分類された」に変更します。
 
-![「分類された」を選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/iy2qm8oaspsm4poxbkshxwwrqatk)
+![「分類された」を選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/vtfub0vl3xm53u2nqlvx8ttwahny)
 
 新たに現れたドロップボックスで色分け表示対象とするカラムを指定します。今回は``syscode``を選択します。
 
-![syscodeを選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/ey3pezrdl3m0syzy621l15vmuwxi)
+![syscodeを選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/vefzfel827bb1ej6dq8ksquz45ze)
 
 何も考えずに画面中央から左下寄りにある「分類」ボタンをクリックします。
 
-![「分類」ボタンを示した画像](https://storage.googleapis.com/zenn-user-upload/07rizdxsxfxkrz2nd9x1nutxgs5v)
+![「分類」ボタンを示した画像](https://storage.googleapis.com/zenn-user-upload/s8s1n5nhg934nzwuvz51fpsove8o)
 
 画面中央に``syscode``の値と色との組み合わせが表示されます。
 
-![値と色の組み合わせ一覧を表示しているところ](https://storage.googleapis.com/zenn-user-upload/dayoskpgco8sekv9x1ygyl2o7gf1)
+![値と色の組み合わせ一覧を表示しているところ](https://storage.googleapis.com/zenn-user-upload/m9auwzwk1vu8u5femlzene4baodp)
 
 「OK」をクリックすると、色分けされた地図になります。
 
-![色分けされた地図を表示しているところ](https://storage.googleapis.com/zenn-user-upload/7y821zegong4xozrhvczv8jy3pe1)
+![色分けされた地図を表示しているところ](https://storage.googleapis.com/zenn-user-upload/qyagh5po8aqshm0rkh2qihogr7qy)
 
 この例では、syscodeを全部指定した後のものですので、1から17に分類されますが、現時点では1から11と13しか値がなく、12個の組み合わせしか存在しません。
 
 新たに指定するたびに、このタブを開き「全削除」「分類」を順にクリックすると、新たなsyscodeも含む色一覧が作成されます。
 
-![「全削除」と「分類」ボタンを示した画像](https://storage.googleapis.com/zenn-user-upload/wih1e7ld154qsh6thfj0h4bh50hu)
+![「全削除」と「分類」ボタンを示した画像](https://storage.googleapis.com/zenn-user-upload/sk38vzx3qfktp9rprle4901b9zlo)
 
 ## XII系
 
@@ -302,7 +302,7 @@ XIV系は東京都のうち「北緯28度から南であり、かつ東経140度
 
 領域ポリゴンは``POLYGON((140.5 0, 143 0, 143 28, 140.5 28, 140.5 0))``となります。
 
-![XIV系](https://storage.googleapis.com/zenn-user-upload/mtpcjo4y91u6gnb31xh7jlkw4rz2)
+![XIV系](https://storage.googleapis.com/zenn-user-upload/zf6772immtlu40pbjt14l9kkdrdg)
 
 ```
 -- 14 東京都 ＊北緯28度から南であり、かつ東経140度30分から東であり東経143度から西である区域
@@ -318,7 +318,7 @@ XV系は、沖縄県のうち「東経126度から東であり、かつ東経130
 
 今度は北端もありません。北端は90度にして、``POLYGON((126 0, 130 0, 130 90, 126 90, 126 0))''とします。
 
-![XV系](https://storage.googleapis.com/zenn-user-upload/wh5kq8726oidemotwh774m0a84fy)
+![XV系](https://storage.googleapis.com/zenn-user-upload/yqrq78wfsr7veig6lwaffth9oydy)
 
 鹿児島県はこの領域にオーバラップしますが、``WHERE``節で沖縄県に限定しているので問題ありません。
 
@@ -336,7 +336,7 @@ XVI系は、沖縄県で「東経126度から西である地域」すなわち``
 
 XVII系は、沖縄県で「東経130度から東である区域」すなわち``POLYGON((130 0, 180 0, 180 90, 130 90, 130 0))``の領域にあるものです。
 
-![XVI系とXVII系](https://storage.googleapis.com/zenn-user-upload/4kdu4whrlmbblctdya47ugvb4wkd)
+![XVI系とXVII系](https://storage.googleapis.com/zenn-user-upload/2dulm076kbfwllklosie2adl0vz1)
 
 やはり、他の都道府県ともインタセクトしていますが、沖縄県のみと考え、無視します。
 
@@ -412,11 +412,11 @@ FROM g_jpr GROUP BY syscode;
 
 上の例をQGISで表示すると、次のようになりました。
 
-![syscodeごとのポリゴンをまとめて凸包にしたもの](https://storage.googleapis.com/zenn-user-upload/gxs7f5y0qut5z7v0slirzsqyc8b4)
+![syscodeごとのポリゴンをまとめて凸包にしたもの](https://storage.googleapis.com/zenn-user-upload/p9i6cwlcf4xqnb2txsaglkqp7n41)
 
 時間がかかりますが、平面直角座標系の系番号ごとのポリゴンを``ST_Union``で作ってみたら、次のようになりました。
 
-![平面直角座標系地図](https://storage.googleapis.com/zenn-user-upload/rdhn50h9vf95umbml7q5a10d8pri)
+![平面直角座標系地図](https://storage.googleapis.com/zenn-user-upload/ba1wbhoulfgpm72myvum6jsrl80j)
 
 # おわりに
 

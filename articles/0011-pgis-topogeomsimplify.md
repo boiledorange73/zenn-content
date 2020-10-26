@@ -76,17 +76,17 @@ SELECT mcode, ST_Simplify(ST_Transform(geom,3857), 100) FROM w_mncpl;
 
 これを図示すると次のようになります。
 
-![簡略化地図](https://storage.googleapis.com/zenn-user-upload/2sovccqc8cpwpe5dg9e7699jwuqp)
+![良くない簡略化地図](https://storage.googleapis.com/zenn-user-upload/e574k7l3794ioq3e1sqimcztrlsb)
 
 問題ないように見えますね。でもこれを拡大してみましょう。
 
-![簡略化地図の一部拡大表示](https://storage.googleapis.com/zenn-user-upload/hr4eco2gj6j9aj02xpxucws4zdd9)
+![良くない簡略化地図の一部拡大表示](https://storage.googleapis.com/zenn-user-upload/rhg82hlvwsspaigruvzemsgd27uh)
 
 隙間ができてしまいました。
 
 塗りつぶしの不透過度を下げてみましょう。
 
-![簡略化地図の一部拡大して不透過度を下げて表示](https://storage.googleapis.com/zenn-user-upload/rawwhmp8rz1rgff7fve3wh1sgxfi)
+![良くない簡略化地図の一部拡大して不透過度を下げて表示](https://storage.googleapis.com/zenn-user-upload/tbirbwfw9wjon59mcsnlo8ks1w60)
 
 状況がもう少し複雑で、隙間のほか、重なりも確認できました。
 
@@ -212,13 +212,13 @@ FROM topogeom_jp_3857 ORDER BY gid;
 
 さきほどと同じ地域を見てみます。
 
-![トポロジによる簡略化の結果](https://storage.googleapis.com/zenn-user-upload/x0wlui397lfjzhonjuz7lj6o7prc)
+![トポロジによる簡略化の結果](https://storage.googleapis.com/zenn-user-upload/91v0vpkvmfsy8jq3nxltnhxngxwv)
 
 隙間はありません。
 
 塗りつぶしの不透過度を下げて、重複を見てみましょう。
 
-![トポロジによる簡略化の結果を不透過度を下げて表示](https://storage.googleapis.com/zenn-user-upload/nh15npnoz0e30eyj3bdabqabfbj5)
+![トポロジによる簡略化の結果を不透過度を下げて表示](https://storage.googleapis.com/zenn-user-upload/flduumybswkvx2ek8hx69z14moo2)
 
 何も変わりないように見えますが、これを求めていたのです、重複が無いのが確認できました。
 
