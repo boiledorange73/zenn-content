@@ -17,7 +17,7 @@ PostGISでは、数値でなくジオメトリに対して足し算や引き算�
 
 ## ST_Union
 
-![ST_Unionの結果](![](https://storage.googleapis.com/zenn-user-upload/2606sovwnmim11nf4qdp7nrl40ad)
+![ST_Unionの結果](https://storage.googleapis.com/zenn-user-upload/2606sovwnmim11nf4qdp7nrl40ad)
 
 ```psql
 db=# SELECT ST_AsText(
