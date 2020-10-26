@@ -4,6 +4,8 @@ summary: "ESRIシェープファイル形式のデータをPostGISに格納し�
 topics: [PostGIS]
 published: true
 price: 0
+# 一時的に設定
+allow_override: true
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - introduction.md
