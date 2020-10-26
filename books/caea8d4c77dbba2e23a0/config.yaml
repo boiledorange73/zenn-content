@@ -1,0 +1,24 @@
+title: "PostGIS入門"
+summary: "「PostGISを入れたらやってみよう」を先にやってみることをお勧めします。"
+topics: [PostGIS]
+published: true
+price: 0
+# 一時的に設定
+allow_override: true
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction.md
+  - geomtypes.md
+  - srs.md
+  - testing.md
+  - editer.md
+  - geog.md
+  - geogfns.md
+  - dump.md
+  - collect.md
+  - delcrack.md
+  - within.md
+  - conv-wkt-geom.md
+  - conv-ewkt-geom.md
+  - inpect-ewkt.md
+  - conclusion.md

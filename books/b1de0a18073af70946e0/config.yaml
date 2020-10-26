@@ -1,6 +1,5 @@
 title: "PostGISを入れたらやってみよう"
-summary: "ESRIシェープファイル形式のデータをPostGISに格納してQGISで表示するまでの手順を紹介しています。
-"
+summary: "ESRIシェープファイル形式のデータをPostGISに格納してQGISで表示するまでの手順を紹介しています。"
 topics: [PostGIS]
 published: true
 price: 0
