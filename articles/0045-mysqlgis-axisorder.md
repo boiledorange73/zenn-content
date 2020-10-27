@@ -3,7 +3,7 @@ title: "MySQLの空間拡張機能のaxis orderについて"
 emoji: "😀"
 type: "tech"
 topics: [MySQL, GIS]
-published: false
+published: true
 ---
 # はじめに
 

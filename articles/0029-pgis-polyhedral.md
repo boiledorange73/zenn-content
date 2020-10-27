@@ -3,7 +3,7 @@ title: "多面体サーフェス"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

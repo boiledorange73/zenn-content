@@ -3,7 +3,7 @@ title: "MySQLのaxis orderは「バグってる」わけではない"
 emoji: "😀"
 type: "tech"
 topics: [MySQL, GIS]
-published: false
+published: true
 ---
 # はじめに
 

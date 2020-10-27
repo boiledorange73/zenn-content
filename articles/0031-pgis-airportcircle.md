@@ -3,7 +3,7 @@ title: "空港近くの水平表面をつくる"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, QGIS]
-published: false
+published: true
 ---
 # はじめに
 

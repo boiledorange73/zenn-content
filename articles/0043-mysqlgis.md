@@ -3,7 +3,7 @@ title: "PostGISユーザがMySQL 8の空間拡張機能を少し触ってみた"
 emoji: "😀"
 type: "tech"
 topics: [GIS, MySQL]
-published: false
+published: true
 ---
 # はじめに
 

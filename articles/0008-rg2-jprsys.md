@@ -3,7 +3,7 @@ title: "逆ジオコーディングのためのデータ整備 #2 平面直角�
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 
@@ -57,7 +57,7 @@ SELECT ST_AsText(
 
 QGISで表示すると次のようになります。
 
-![I系の領域](https://storage.googleapis.com/zenn-user-upload/2ajp11rrg8vn15njbowuwkh36e7q)
+![I系の領域](https://storage.googleapis.com/zenn-user-upload/mtj3mzusqkmiqbeq7uvgvmfq5yro)
 
 これをI系領域とします。
 
@@ -251,7 +251,7 @@ XI系またはXIII系を指定する際の``WHERE``節に間違いがあって�
 
 ### QGISでsyscodeごとに色分けして見てみよう
 
-[QGISでPostGISのデータを見てみよう](https://boiledorange73.qrunch.io/entries/CUp2YI7GElH94Hqg)や[WMSで地域を絞り込んだうえでPostGISレイヤを表示する](https://boiledorange73.qrunch.io/entries/y7LiMxGtnvs4mOkq)を参考に、北海道を表示し、g_jprレイヤを作成します。
+[QGISでPostGISのデータを見てみよう](https://zenn.dev/boiledorange73/books/b1de0a18073af70946e0/viewer/qgis)や[WMSで地域を絞り込んだうえでPostGISレイヤを表示する](https://zenn.dev/boiledorange73/books/b1de0a18073af70946e0/viewer/qgis-wms)を参考に、北海道を表示し、g_jprレイヤを作成します。
 
 ここで、レイヤペインのg_jprレイヤを右クリックでおさえてコンテキストメニューを出し、「プロパティ」を選択します。
 

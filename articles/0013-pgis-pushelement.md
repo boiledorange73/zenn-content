@@ -3,7 +3,7 @@ title: "マルチ系ジオメトリに単一ジオメトリを必ず末尾に追
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

@@ -3,7 +3,7 @@ title: "逆ジオコーディングのためのデータ整備 #4 クエリを�
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 
@@ -126,7 +126,7 @@ SELECT section, blockcode, ST_Distance(
 
 # 系をまたぐ市町村
 
-平面直角座標系は、[空間参照系の概要](https://boiledorange73.qrunch.io/entries/WQUrnoALXaSeon9R)で示したとおり、わが国を19に分割しています。都道府県のうちの多くは、ひとつの府県で複数の系にまたがることはありませんが、北海道、東京都、鹿児島県、沖縄県は、ひとつの都道県で複数の系にまたがります。
+平面直角座標系は、[空間参照系の概要](https://zenn.dev/boiledorange73/books/caea8d4c77dbba2e23a0/viewer/srs)で示したとおり、わが国を19に分割しています。都道府県のうちの多くは、ひとつの府県で複数の系にまたがることはありませんが、北海道、東京都、鹿児島県、沖縄県は、ひとつの都道県で複数の系にまたがります。
 
 では、このうち、ひとつの市町村で複数の系にまたがることがあるでしょうか。
 

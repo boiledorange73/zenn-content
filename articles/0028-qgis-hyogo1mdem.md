@@ -3,7 +3,7 @@ title: "兵庫県1m DEMをさわってみる"
 emoji: "😀"
 type: "tech"
 topics: [QGIS]
-published: false
+published: true
 ---
 # はじめに
 

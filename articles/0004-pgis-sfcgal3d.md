@@ -3,7 +3,7 @@ title: "PostGIS+SFCGALで3次元幾何演算を行う"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

@@ -3,7 +3,7 @@ title: "ST_Buffer()を使ってジオメトリコレクションからポリゴ�
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, 小ネタ]
-published: false
+published: true
 ---
 # はじめに
 

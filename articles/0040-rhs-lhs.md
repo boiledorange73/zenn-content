@@ -3,7 +3,7 @@ title: "右手系と左手系が違うと何が問題か"
 emoji: "😀"
 type: "tech"
 topics: [算数, GIS, ポエム]
-published: false
+published: true
 ---
 # はじめに
 

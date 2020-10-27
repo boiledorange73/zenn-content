@@ -3,7 +3,7 @@ title: "メソッドを作る"
 emoji: "😀"
 type: "tech"
 topics: [JavaScript]
-published: false
+published: true
 ---
 # はじめに
 

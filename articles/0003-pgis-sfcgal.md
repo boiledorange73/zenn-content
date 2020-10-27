@@ -3,7 +3,7 @@ title: " PostGIS+SFCGALの話"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # SFCGAL
 

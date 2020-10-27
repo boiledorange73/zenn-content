@@ -3,7 +3,7 @@ title: "PostGIS 3.0にアップデートする際の注意点"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

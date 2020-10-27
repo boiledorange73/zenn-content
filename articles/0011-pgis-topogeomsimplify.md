@@ -3,7 +3,7 @@ title: "トポジオメトリを使うと隙間や重なりの無いポリゴン
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

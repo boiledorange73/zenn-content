@@ -3,7 +3,7 @@ title: "JSONなラスタをGDALでドライブ"
 emoji: "😀"
 type: "tech"
 topics: [GDAL]
-published: false
+published: true
 ---
 # はじめに
 

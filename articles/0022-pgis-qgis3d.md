@@ -3,7 +3,7 @@ title: "標準装備のQGISで三次元表示ができるよ!"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, QGIS]
-published: false
+published: true
 ---
 # はじめに
 

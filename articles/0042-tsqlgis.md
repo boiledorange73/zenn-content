@@ -3,7 +3,7 @@ title: "PostGISユーザがSQL Server 2017の空間機能を少し触ってみ�
 emoji: "😀"
 type: "tech"
 topics: [GIS, SQLServer]
-published: false
+published: true
 ---
 # はじめに
 

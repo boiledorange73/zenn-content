@@ -3,7 +3,7 @@ title: "PostGIS 3.0で消えた関数"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

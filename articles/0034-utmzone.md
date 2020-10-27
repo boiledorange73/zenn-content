@@ -3,7 +3,7 @@ title: "UTMゾーン番号の計算"
 emoji: "😀"
 type: "tech"
 topics: [GIS]
-published: false
+published: true
 ---
 # はじめに
 

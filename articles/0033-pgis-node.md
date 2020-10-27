@@ -3,7 +3,7 @@ title: "Node.jsでPostGISから出たGeoJSONを受ける"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, NodeJS, FreeBSD]
-published: false
+published: true
 ---
 # はじめに
 

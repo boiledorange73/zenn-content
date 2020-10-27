@@ -3,7 +3,7 @@ title: "測地系には有効な期間がある"
 emoji: "😀"
 type: "tech"
 topics: [GIS]
-published: false
+published: true
 ---
 # はじめに
 

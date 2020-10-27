@@ -3,7 +3,7 @@ title: "PostGISの3次元ジオメトリをブラウザで見てみよう"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

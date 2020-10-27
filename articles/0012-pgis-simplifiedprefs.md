@@ -3,7 +3,7 @@ title: "簡略化した都道府県シングルポリゴンの生成"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # はじめに
 

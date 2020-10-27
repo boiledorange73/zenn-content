@@ -3,7 +3,7 @@ title: "PostGIS 3の気になったところのメモ"
 emoji: "😐"
 type: "tech"
 topics: [PostGIS]
-published: false
+published: true
 ---
 # 現時点でもメモです
 

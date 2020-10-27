@@ -3,7 +3,7 @@ title: "ドロネー図からボロノイ図を作る"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, OSM]
-published: false
+published: true
 ---
 # ご注意
 

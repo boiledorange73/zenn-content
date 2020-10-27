@@ -3,7 +3,7 @@ title: "点と線分の距離を求める"
 emoji: "😀"
 type: "tech"
 topics: [算数, JavaScript]
-published: false
+published: true
 ---
 # はじめに
 

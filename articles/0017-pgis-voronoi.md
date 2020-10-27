@@ -3,7 +3,7 @@ title: "PostGIS 2.3以降はボロノイ図を作る関数を持っているの�
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, OSM]
-published: false
+published: true
 ---
 # 先にまとめ
 

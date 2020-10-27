@@ -3,11 +3,11 @@ title: "コンビニを近い順に5つだけ抽出する"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, OSM]
-published: false
+published: true
 ---
 # はじめに
 
-[OverPass APIからデータを落としてPostGISに入れてみた](https://boiledorange73.qrunch.io/entries/809aiJzINuKMCopY)では、得たデータから「何かする」とだけ宣言しました。
+[OverPass APIからデータを落としてPostGISに入れてみた](0014-pgis-fromoverpass)では、得たデータから「何かする」とだけ宣言しました。
 
 ありがちなものですが、指定した位置から近いPOI (Point Of Interest)を探してみたいと思います。
 
@@ -21,7 +21,7 @@ published: false
 
 ## データを引っ張りなおしてくる
 
-[OverPass APIからデータを落としてPostGISに入れてみた](https://boiledorange73.qrunch.io/entries/809aiJzINuKMCopY)でも紹介しましたが、OverPass APIを使います。
+[OverPass APIからデータを落としてPostGISに入れてみた](0014-pgis-fromoverpass)でも紹介しましたが、OverPass APIを使います。
 
 http://overpass-api.de/query_form.html にアクセスして、"Overpass API Query Form"の見出しのあるところの直下のテキストエリアに次のXMLをコピペして、"Query"をクリックするとデータを生成してくれます。5秒程度かかるので、あまりサーバに負荷をかけないようにし、頻繁にアクセスするのは控えましょう。
 

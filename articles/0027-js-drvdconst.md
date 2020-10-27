@@ -3,7 +3,7 @@ title: "派生クラスのコンストラクタ"
 emoji: "😀"
 type: "tech"
 topics: [JavaScript]
-published: false
+published: true
 ---
 # はじめに
  

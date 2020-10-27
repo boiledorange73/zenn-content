@@ -3,7 +3,7 @@ title: " MySQLと地理院サイトで2点間の距離が違う理由"
 emoji: "😀"
 type: "tech"
 topics: [MySQL, GIS]
-published: false
+published: true
 ---
 # はじめに
 

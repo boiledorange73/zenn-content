@@ -3,7 +3,7 @@ title: "GeoJSONのエクスポートとWeb地図アプリケーションの作�
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, Leaflet, GeoJSON]
-published: false
+published: true
 ---
 # はじめに
 
@@ -13,7 +13,7 @@ PostGISに貯めているデータはGeoJSON形式でエクスポートし、jQu
 
 # データ
 
-今回は、国土数値情報（道の駅データ）を使います。[国土数値情報ダウンロードサービス](http://nlftp.mlit.go.jp/ksj/index.html)からダウンロードし、[シェープファイルのデータをインポートしてみよう コマンドライン編](https://boiledorange73.qrunch.io/entries/MxKbzTLuPBxVcqkx)または[シェープファイルのデータをインポートしてみよう GUI編](https://boiledorange73.qrunch.io/entries/MxKbzTLuPBxVcqkx)を参考に、PostGISデータベースにインポートして下さい。
+今回は、国土数値情報（道の駅データ）を使います。[国土数値情報ダウンロードサービス](http://nlftp.mlit.go.jp/ksj/index.html)からダウンロードし、[シェープファイルのデータをインポートしてみよう コマンドライン編](https://zenn.dev/boiledorange73/books/b1de0a18073af70946e0/viewer/import-cli)または[シェープファイルのデータをインポートしてみよう GUI編](https://zenn.dev/boiledorange73/books/b1de0a18073af70946e0/viewer/import-gui)を参考に、PostGISデータベースにインポートして下さい。
 
 テーブル名は、GUIでインポートしたら``p35-18_roadside_station``となったので、そのまま使っています。インポートして生成されたテーブルのテーブル名が違う場合には、ご自身のテーブル名を優先して下さい。
 

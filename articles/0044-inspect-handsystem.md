@@ -3,7 +3,7 @@ title: "いくつかのシステムでポリゴンを左回りにするか右回
 emoji: "😀"
 type: "tech"
 topics: [MySQL, PostGIS, SpatiaLite, SQLServer, GIS]
-published: false
+published: true
 ---
 # はじめに
 

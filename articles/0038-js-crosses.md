@@ -3,7 +3,7 @@ title: "二つの線分がクロスするかを判定する"
 emoji: "😀"
 type: "tech"
 topics: [算数, JavaScript]
-published: false
+published: true
 ---
 # はじめに
 

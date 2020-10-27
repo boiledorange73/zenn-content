@@ -3,7 +3,7 @@ title: "ふりかえってマクローリン展開をながめる"
 emoji: "😀"
 type: "tech"
 topics: [JavaScript, 算数]
-published: false
+published: true
 ---
 # はじめに
 

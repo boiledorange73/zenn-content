@@ -3,7 +3,7 @@ title: "二つの線分がインタセクトするかを判定する"
 emoji: "😀"
 type: "tech"
 topics: [算数, JavaScript]
-published: false
+published: true
 ---
 # はじめに
 

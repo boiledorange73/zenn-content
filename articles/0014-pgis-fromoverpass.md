@@ -3,7 +3,7 @@ title: "OverPass APIからデータを落としてPostGISに入れてみた"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS, OSM]
-published: false
+published: true
 ---
 # はじめに
 
