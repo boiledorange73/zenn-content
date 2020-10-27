@@ -3,7 +3,7 @@ title: "1948年以降の祝日等を計算するJavaScriptコード"
 emoji: "😀"
 type: "tech"
 topics: [JavaScript, 算数]
-published: false
+published: true
 ---
 # はじめに
 
