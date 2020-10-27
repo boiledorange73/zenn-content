@@ -36,7 +36,7 @@ db=# CREATE VIEW v_r40 AS SELECT * FROM t1 WHERE ST_DWithin(geom, 'SRID=4612;POI
 
 上記ビューと東経133度、北緯34.5度の点とを重ねると、次のようになります。
 
-![[円の中心点](https://storage.googleapis.com/zenn-user-upload/i9ka2bqoxb105abbajiq6nno34rc)
+![円の中心点](https://storage.googleapis.com/zenn-user-upload/eyztxh8w7jon6xic85anek4kf51r)
 
 # 40km円との関係
 
@@ -50,7 +50,7 @@ db=# SELECT ST_Buffer('SRID=4612;POINT(133 34.5)'::GEOGRAPHY, 40000);
 
 さきほどの地図と重ねてみます。
 
-![半径40km円](https://storage.googleapis.com/zenn-user-upload/00p7ji6fl6gyeptk6tapj8pbojvz)
+![半径40km円](https://storage.googleapis.com/zenn-user-upload/lz4jsw4lzldzsx2om9wfwzpaymql)
 
 ここから分かる通り、``ST_DWithin()``は、円に少しでもかかっていれば``TRUE``を返します。言い換えると、二つのジオグラフィ間の距離の最小値でテストしています。
 

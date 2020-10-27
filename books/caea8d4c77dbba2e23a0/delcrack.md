@@ -5,7 +5,7 @@ title: "結合でできた「隙間」を排除する"
 
 「ジオメトリの足し算、引き算をする」の最後で、広島県内の市区町村ポリゴンを結合して広島県ポリゴンを作ったところ、不思議な「線」がまぎれてしまいました。
 
-![不思議な「線」を持つ広島県ポリゴン](https://storage.googleapis.com/zenn-user-upload/ylsecl0cnb3zotui410y8pq3h48g)
+![不思議な「線」を持つ広島県ポリゴン](https://storage.googleapis.com/zenn-user-upload/zn3429qiy9vvxete8navzy8qe6o0)
 
 もう少ししっかり見ると、廿日市市のポリゴンが少しだけズレてしまっているようで、隣接する広島市佐伯区、安芸太田町、大竹市とに「隙間」ができていました。
 
@@ -92,7 +92,7 @@ SELECT ST_Collect(poly) FROM (
 
 # 結果
 
-![「隙間」が消えた広島県ポリゴン](https://storage.googleapis.com/zenn-user-upload/s6ntrl0rppptjo4dqzbik5k2ev96)
+![「隙間」が消えた広島県ポリゴン](https://storage.googleapis.com/zenn-user-upload/csw0z7jcgmhzfrbbw6rysedk8pbw)
 
 南西部の「隙間」は消えました。
 
