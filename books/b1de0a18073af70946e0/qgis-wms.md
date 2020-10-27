@@ -11,7 +11,7 @@ title: "WMSで地域を絞り込んだうえでPostGISレイヤを表示する"
 
 全体を表示すると、次のようになります。
 
-![全国ポリゴンの全体を表示したところ](https://storage.googleapis.com/zenn-user-upload/ikfpa3uu0cfgylhcrccsor2rbspw)
+![全国ポリゴンの全体を表示したところ](https://storage.googleapis.com/zenn-user-upload/ybq44p9t6q89zhpv0xb9r94nts5l)
 
 どうも無駄に時間をくっている気がします。あと、ここで塗りつぶし色を変更したら、もう一度データ取得からやり直しになりますので、かなり面倒です。
 
@@ -36,70 +36,70 @@ WMSはWeb Map Serviceの略で、HTTPを利用して、オンデマンドな地�
 
 とりあえずメニューから「レイヤ」→「WMS/WMTSレイヤの追加」を選択します。
 
-![WMS/TMSレイヤの追加を選択しようとしている図](https://storage.googleapis.com/zenn-user-upload/ai10jd8zaarucwkusujpb8hs2oav)
+![WMS/TMSレイヤの追加を選択しようとしている図](https://storage.googleapis.com/zenn-user-upload/qhcrpq99cwszqu1rn6jbx6pbd9nd)
 
 「WM(T)Sサーバからレイヤを追加」ダイアログが現れます。
 
 現時点では、WMSサーバは全く登録されていませんので、登録しましょう。
 「新規」ボタンをクリックします。
 
-![「WM(T)Sサーバからレイヤを追加」ダイアログ](https://storage.googleapis.com/zenn-user-upload/8ndujx1vt72c8ht8jq3t0z9n1uvi)
+![「WM(T)Sサーバからレイヤを追加」ダイアログ](https://storage.googleapis.com/zenn-user-upload/spcbq1vrjjrjmmvklv569o6cv58c)
 
 「新しいWMSコネクションの作成」ダイアログが表示されます。通常、入力に必要なのは、「名称」と「URL」です。
 
 名称は、ユーザが識別するために使用するもので、自由に記述できますが、自分にとって分かりやすくして下さい。
 
-URLは、サービスポイントURLを指定します。今回は``http://www.finds.jp/ws/wms.php?``とします。
+URLは、サービスポイントURLを指定します。今回は``http://aginfo.cgk.affrc.go.jp/ws/wms.php?``とします。
 
-![「新しいWMSコネクションの作成」ダイアログで名称とURLを入力したところ](https://storage.googleapis.com/zenn-user-upload/ggdyq1kr9itxuzspv81ps2y3s5rq)
+![「新しいWMSコネクションの作成」ダイアログで名称とURLを入力したところ](https://storage.googleapis.com/zenn-user-upload/xmorxv20udl2ka3nq8iuuoe6vgzu)
 
 その他の設定は、とりあえず無視してOKだろうと思いますが、インターネットとの間にURL変換をするプロキシをかませている場合には、「capabilitiesで返答されたGetMap/GetTile URIを無視する」にチェックを入れると良いかと思います。
 
 登録がうまくいくと、ひとつ前のダイアログに、名称が表示されていると思います。
 
-![「Finds.jp WMS」というエントリが生成されたことを示す図](https://storage.googleapis.com/zenn-user-upload/2v48lmmyu8heq0bmqsxgxamqi3cs)
+![「Finds.jp WMS」というエントリが生成されたことを示す図](https://storage.googleapis.com/zenn-user-upload/bj9h7ktcq17stgc6g47wy31qlgoj)
 
 ## 接続する
 
 「WM(T)Sサーバからレイヤを追加」ダイアログで「接続」ボタンをクリックします。
 
-![「WM(T)Sサーバからレイヤを追加」ダイアログの「接続」ボタン](https://storage.googleapis.com/zenn-user-upload/pkvyhw3ze8gvm4zklk90qmyb1025)
+![「WM(T)Sサーバからレイヤを追加」ダイアログの「接続」ボタン](https://storage.googleapis.com/zenn-user-upload/7ledv0xiogt5jtbyyjthxntbo7o6)
 
 中央部のリストにずらっと「何か」が表示されました。これらは、レイヤ一覧です。
 
-![グループ化されたレイヤ一覧が表示されているところ](https://storage.googleapis.com/zenn-user-upload/9k8naiyqhu6pzffzkkza9n83x3je)
+![グループ化されたレイヤ一覧が表示されているところ](https://storage.googleapis.com/zenn-user-upload/urk489493gwcf5hwk3b2ngwzo95a)
 
 基盤地図情報旧データ縮尺レベル25000を元データとしているレイヤグループは FGD25000 です。このグループには、行政区域、道路縁、等高線などのレイヤが存在します。
 
 レイヤ行をクリックすると反転します。複数選択が可能ですが、今回はFGD25000グループのみ選択します。選択したうえで「追加」ボタンを押すと、レイヤ追加が実行されます。「閉じる」をクリックすると、レイヤ追加ダイアログが閉じられます。
 
-![FGD25000を追加する順番を示した図](https://storage.googleapis.com/zenn-user-upload/43osc0nesrmnb70236im00b4o57c)
+![FGD25000を追加する順番を示した図](https://storage.googleapis.com/zenn-user-upload/fj1k91cr120xxsd8nmb5zl3z8bfj)
 
 これで、日本全体が表示されます。
 
-![日本全体を表示させているところ](https://storage.googleapis.com/zenn-user-upload/0a634rualbsb8ny13pk1lkyjq93r)
+![日本全体を表示させているところ](https://storage.googleapis.com/zenn-user-upload/4ml8ou1ehskx9252ylzw2xtc2ux3)
 
 ## PostGISはできるだけ表示しないように操作する
 
 QGISを操作して、見たい範囲だけを表示するようにします。
 
-![広島県全体が表示される範囲を表示しているところ](https://storage.googleapis.com/zenn-user-upload/ule7pyd84thtt7ddv1jlcn1ncs9m)
+![広島県全体が表示される範囲を表示しているところ](https://storage.googleapis.com/zenn-user-upload/iku9dx7cpgrklpx5f8087kbg6rc8)
 
 ここまで来たら、PostGISレイヤを追加します。
 
-![PostGISレイヤを追加したところ](https://storage.googleapis.com/zenn-user-upload/buava61ae1tpujjr96gzuj49q8w2)
+![PostGISレイヤを追加したところ](https://storage.googleapis.com/zenn-user-upload/ctsx8b4agljn54njjarnd2rdd5pi)
 
 別の範囲に移りたい際には、いったん「レイヤ」ペインのPostGISレイヤのチェックボックスをオフにして、PostGISレイヤを表示しないようにします。
 
-![PostGISレイヤを表示しないようにしたところ](https://storage.googleapis.com/zenn-user-upload/a75cm77jyg5q9twckcsp9t75vsjw)
+![PostGISレイヤを表示しないようにしたところ](https://storage.googleapis.com/zenn-user-upload/qqlowtc2osvbkwljvad1sxucrpbp)
 
 この状態で移動します。
 
-![和歌山県の一部が表示される範囲を表示しているところ](https://storage.googleapis.com/zenn-user-upload/b1lvxtc3zco7do5uwksqnd1kgm7t)
+![和歌山県の一部が表示される範囲を表示しているところ](https://storage.googleapis.com/zenn-user-upload/t4hvxyb6bc6l86we8tq2x7kmv6z9)
 
 あらためて、PostGISレイヤを表示させます。
 
-![PostGISレイヤを表示させたところ](https://storage.googleapis.com/zenn-user-upload/hbzunah4n3eyrjdx209hbcb98fjf)
+![PostGISレイヤを表示させたところ](https://storage.googleapis.com/zenn-user-upload/0tftu9abn6v8x9kbdxa62x8qm6s6)
 
 ## 全体表示をしてみる
 
@@ -107,11 +107,11 @@ QGISを操作して、見たい範囲だけを表示するようにします。
 
 「レイヤ」ペインのPostGISレイヤを右クリックでおさえて、コンテキストメニューを出し、「レイヤの領域にズーム」を選択します。
 
-![「レイヤの領域にズーム」を選択したところ](https://storage.googleapis.com/zenn-user-upload/rbngcalzqdfvdirzlucrpcwnjc0i)
+![「レイヤの領域にズーム」を選択したところ](https://storage.googleapis.com/zenn-user-upload/evsdvxqsbohf8s9l8od6kf15a4lt)
 
 しばらく、プログレスバーが動いて頑張ってロードします。しばらく待ちましょう。
 
-![ウィンドウ下のプログレスバーが動いて頑張っているところ](https://storage.googleapis.com/zenn-user-upload/ieav4pj46lu3p0mogkz364dmpu5t)
+![ウィンドウ下のプログレスバーが動いて頑張っているところ](https://storage.googleapis.com/zenn-user-upload/ll4dxcga9xly1dw53kcdaj88fgoj)
 
 ## 範囲を絞り込んでも全体表示と同じパフォーマンスになる場合
 

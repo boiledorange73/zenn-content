@@ -21,24 +21,24 @@ Windowsについては、他のオープンソースの地理空間情報ツー�
 
 まず、「レイヤ」メニューからPostGISレイヤの追加を選択します。
 
-![「レイヤ」メニューを表示しているところ](https://storage.googleapis.com/zenn-user-upload/l2xp27yizgaiten1bnxy97hlxqeg)
+![「レイヤ」メニューを表示しているところ](https://storage.googleapis.com/zenn-user-upload/otxrgrlvigp8d4gpcyxzj1kjmzla)
 
 ## localhost の db に接続するための設定を行う
 
 「PostGIS テーブルを追加」ダイアログには何もありません。ここで「新規」をクリックします。
 
-![初期状態の「PostGIS テーブルを追加」ダイアログ](https://storage.googleapis.com/zenn-user-upload/k6kj4g1ea19pmjmd3ncdj1rw1ex6)
+![初期状態の「PostGIS テーブルを追加」ダイアログ](https://storage.googleapis.com/zenn-user-upload/bpieyseg2mhsre48j828k8o6erwd)
 
 「新規 PostGIS 接続を作成」ダイアログが開きます。
 
-![初期状態の「新規 PostGIS 接続を作成」ダイアログ](https://storage.googleapis.com/zenn-user-upload/zvtzgh7xf934yqiccae5nru81jru)
+![初期状態の「新規 PostGIS 接続を作成」ダイアログ](https://storage.googleapis.com/zenn-user-upload/q3t5sx5pqokrxjpniqb9jof39dly)
 
 * 名称は自由に記入できます。ここでは db@localhost としています。
 * ホスト、データベースは、サーバの状況に応じて記入して下さい。ここでは ホストは localhost とし、データベースは db としています。
 * ポートは、デフォルトでは 5432 です。変更してある場合は、サーバの設定にあわせて下さい。
 * SSLモード、ユーザ名、パスワード等は、サーバの状況に応じて記入して下さい。
 
-![記入を済ませた後の「新規 PostGIS 接続を作成」ダイアログ](https://storage.googleapis.com/zenn-user-upload/avlt1owpenu1xyozqcpwasy0c6ck)
+![記入を済ませた後の「新規 PostGIS 接続を作成」ダイアログ](https://storage.googleapis.com/zenn-user-upload/mmjw7tyizbbr8nfrlow8hoysylz5)
 
 この接続設定は保存されるので、次回以降はこの操作は不要です。
 
@@ -48,18 +48,18 @@ Windowsについては、他のオープンソースの地理空間情報ツー�
 
 「PostGIS テーブルを追加」ダイアログのプルダウンに「db@localhost」が出ているのを確認して「接続」ボタンをクリックすると、下にジオメトリ型のカラムを持つテーブル一覧が表示されます。
 
-![「PostGIS テーブルを追加」ダイアログのジオメトリ型のカラムを持つテーブル一覧](https://storage.googleapis.com/zenn-user-upload/teynynmnehngy4fsmea9f2b6w56f)
+![「PostGIS テーブルを追加」ダイアログのジオメトリ型のカラムを持つテーブル一覧](https://storage.googleapis.com/zenn-user-upload/uk5u98v1zb00qiv5jslnldgno8q5)
 
 ここでは、t1を選択して、「追加」をクリックします。そうすると、メインウィンドウに、地図が表示されます。
 
-![レイヤ追加直後の状態](https://storage.googleapis.com/zenn-user-upload/iut8jt6v5vn47uyv7yx5psc98aaw)
+![レイヤ追加直後の状態](https://storage.googleapis.com/zenn-user-upload/db5w25gmz881kny7tjbrabymsroc)
 
 # QGISの基本操作
 
 ## 移動と拡大縮小
 ウィンドウ上部にあるツールバーのうち、次に示すものに注目して下さい。
 
-![操作モード切替ツールバー](https://storage.googleapis.com/zenn-user-upload/6id712o935m9tbmcmi30rhwqbvmv)
+![操作モード切替ツールバー](https://storage.googleapis.com/zenn-user-upload/l9oaz5xlab36hrmhe5f5bh7l2sgw)
 
 * 左から2番目にある「手のひら」（左端にあるピンチ操作アイコンではない）を選択すると、「パン」モードになり、マウスドラッグで地図を動かせます。
 * 左から4番目の「むしめがね（＋）」で拡大モードに入ります。ドラッグした範囲にあわせて拡大してくれます。
@@ -71,11 +71,11 @@ Windowsについては、他のオープンソースの地理空間情報ツー�
 
 「レイヤ」ペインで"t1"レイヤを選択し、「地物情報表示」モードに切り替え、ジオメトリをクリックすると、そこが選択され、「地物情報」ペインにレコードのデータが表示されます。
 
-![「地物情報表示」の操作順序](https://storage.googleapis.com/zenn-user-upload/g5vq87qg1bwrj20eplu25fhqhhps)
+![「地物情報表示」の操作順序](https://storage.googleapis.com/zenn-user-upload/y0aqqbc0ax29tko0f1xraawx5qpf)
 
 ペインはウィンドウにすることができるので、見にくい場合には、そのようにして下さい。
 
-![ペインを切り離したところ](https://storage.googleapis.com/zenn-user-upload/1771ymk50s9cr6v514fbxk0mts3n)
+![ペインを切り離したところ](https://storage.googleapis.com/zenn-user-upload/bcvo2s2f4hulmvp89jr3xpi02kx1)
 
 # ラベルを表示する
 
@@ -87,21 +87,21 @@ Windowsについては、他のオープンソースの地理空間情報ツー�
 
 まず、レイヤペインでt1レイヤをマウス右ボタンで押さえ「プロパティ」を選択します。
 
-![レイヤペインからレイヤのプロパティを選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/7gtm4qld48jw894vw35nufbvkepa)
+![レイヤペインからレイヤのプロパティを選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/bfskzqd1cmijgc8bckw54jx1iytf)
 
 「レイヤプロパティ」ダイアログが表示されます。今回はラベルを表示するので、「ラベル」タブを選択します。
 
-![レイヤプロパティダイアログでラベルタブを選択しているところ](https://storage.googleapis.com/zenn-user-upload/gmnpk8va3f9lm61iqqp91sfc1jtg)
+![レイヤプロパティダイアログでラベルタブを選択しているところ](https://storage.googleapis.com/zenn-user-upload/7iqugpmvvg2ci1t4djkr9zh44is2)
 
 「このレイヤのラベル」のチェックボックスにチェックを入れ、プルダウンからカラムを選択できるので、n03_004を選択します。
 
 必要なら色や文字サイズ等の設定も変えられます。
 
-![ラベルに使うカラムをn03_004に指定しているところ](https://storage.googleapis.com/zenn-user-upload/w5yhkohjzg32ksgykfak2kfttnoa)
+![ラベルに使うカラムをn03_004に指定しているところ](https://storage.googleapis.com/zenn-user-upload/348o7k5df2nbg70rts8i5rkoi4w0)
 
 「OK」で確定させると、地図上に市区町村名が表示されます。
 
-![地図に市区町村名が表示されている図](https://storage.googleapis.com/zenn-user-upload/hb0eamqpolm94axj101eivcccqyt)
+![地図に市区町村名が表示されている図](https://storage.googleapis.com/zenn-user-upload/poe37fxwk4209k2ykt5ez5mb201d)
 
 同一市区町村名が複数出てきていて見にくいかも知れませんが、とりあえずは市区町村名が表示されたことだけ確認して下さい。
 
