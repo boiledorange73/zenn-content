@@ -234,9 +234,17 @@ QGISのメニューから「レイヤ」→「レイヤを追加」→「ラス�
 PG:dbname=(データベース名) table=(テーブル名) port=(ポート番号) user=(ユーザ名) password=(パスワード)
 ```
 
+ダイアログは次のようになります。
+
+![PostGISラスタをデータソースに指定しているところ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-raster-beginner/raster2pgsql/1.png)
+
+なんか違和感を感じます。
+
 ## 表示できた
 
 せっかくなのでPostGISラスタをデータソースとして指定してQGISで表示させた結果を示します。
+
+![PostGISラスタをQGISで表示しているところ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-raster-beginner/raster2pgsql/2.png)
 
 
 # おわりに
