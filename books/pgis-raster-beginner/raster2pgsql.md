@@ -29,6 +29,7 @@ gdalは、フォーマットの相互変換やリサンプリング、マージ�
 % gdalinfo demext.tif 
 Driver: GTiff/GeoTIFF
 Files: demext.tif
+       demext.tif.aux.xml
 Size is 600, 400
 Coordinate System is:
 GEOGCRS["JGD2000",
@@ -62,6 +63,15 @@ Upper Right ( 133.4172222,  34.4078889) (133d25' 2.00"E, 34d24'28.40"N)
 Lower Right ( 133.4172222,  34.3634444) (133d25' 2.00"E, 34d21'48.40"N)
 Center      ( 133.3838889,  34.3856667) (133d23' 2.00"E, 34d23' 8.40"N)
 Band 1 Block=600x3 Type=Float32, ColorInterp=Gray
+  Min=0.000 Max=347.400
+  Minimum=0.000, Maximum=347.400, Mean=59.674, StdDev=95.060
+  NoData Value=-9999
+  Metadata:
+    STATISTICS_MAXIMUM=347.39999389648
+    STATISTICS_MEAN=59.674224998563
+    STATISTICS_MINIMUM=0
+    STATISTICS_STDDEV=95.060453340889
+    STATISTICS_VALID_PERCENT=100
 ```
 
 ピクセル数、空間参照系、ピクセルの原点に対応する地理的位置、解像度（単位/ピクセル）、バンド数とバンドのタイプ等が出てきます。
@@ -71,13 +81,13 @@ Band 1 Block=600x3 Type=Float32, ColorInterp=Gray
 ``createdb``の後、SQLの``CREATE EXTENSION``で、エクステンションを導入します。この際、PostGIS 2.xでは``CREATE EXTENSION postgis``で、ラスタ機能も追加されましたが、PostGIS 3.xではPostGISエクステション導入の後に``CREATE EXTENSION postgis_raster``でラスタ機能を導入します。具体的には、次のようにします。
 
 ```
-% createdb db
-% psql -d db
-db=# CREATE EXTENSION postgis;
+% createdb raster
+% psql -d raster
+raster=# CREATE EXTENSION postgis;
 CREATE EXTENSION
-db=# CREATE EXTENSION postgis_raster;
+raster=# CREATE EXTENSION postgis_raster;
 CREATE EXTENSION
-db=# 
+raster=# 
 ```
 
 # とりあえず叩き込む
@@ -118,16 +128,22 @@ CREATE TABLE "dem" ("rid" serial PRIMARY KEY,"rast" raster);
 
 # PostGISラスタの確認
 
-gdalで通常ファイル名を指定する所には、ファイル以外のチャネルに対応できるようにしています。PostGISのテーブルをソースデータとして開きたいときには、ソースデータを指定する箇所で、ファイル名の代わりに次のような文字列を指定します。
+## gdalツールで指定する「データソース」
+
+一般的には「データソース」と「ファイル名」とは同じであると考えられているかと思います。
+
+gdalで通常データソースを指定する所には、ファイル以外のチャネルに対応できるようにしています。PostGISのテーブルをデータソースとして開きたいときには、データソースを指定する箇所で、ファイル名の代わりに次のような文字列を指定します。
 
 ```
-'PG:dbname=(データベース名) table=(テーブル名)'
+PG:dbname=(データベース名) table=(テーブル名) port=(ポート番号) user=(ユーザ名) password=(パスワード)
 ```
 
-本章で示している例では、データベース名が``db``で、テーブル名が``dem``ですので、そのように指定して``gdalinfo``でデータを見てみましょう。なお、下の実行結果例では警告が出ていますが、とりあえずは無視します。
+## gdalinfoによる確認
+
+本章で示している例では、データベース名が``raster``で、テーブル名が``dem``ですので、そのように指定して``gdalinfo``でデータを見てみましょう。なお、下の実行結果例では警告が出ていますが、とりあえずは無視します。
 
 ```
-gdalinfo 'PG:dbname=db table=dem'
+% gdalinfo 'PG:dbname=raster table=dem'
 Warning 1: Cannot find (valid) information about public.dem table in raster_columns view. The raster table load would take a lot of time. Please, execute AddRasterConstraints PostGIS function to register this table as raster table in raster_columns view. This will save a lot of time.
 Driver: PostGISRaster/PostGIS Raster driver
 Files: none associated
@@ -191,8 +207,8 @@ Upper Right ( 133.4172222,  34.4078889) (133d25' 2.00"E, 34d24'28.40"N)
 Lower Right ( 133.4172222,  34.3634444) (133d25' 2.00"E, 34d21'48.40"N)
 Center      ( 133.3838889,  34.3856667) (133d23' 2.00"E, 34d23' 8.40"N)
 Band 1 Block=600x400 Type=Float32, ColorInterp=Gray
+  NoData Value=-9999
 ```
-
 
 これで、データの内容はともかく、位置や解像度等は正しいことが確認できます。
 
@@ -200,9 +216,13 @@ Band 1 Block=600x400 Type=Float32, ColorInterp=Gray
 
 QGISのメニューから「レイヤ」→「レイヤを追加」→「ラスタレイヤを追加」と選択すると、追加したいラスタファイル名を求めるダイアログが現れます。
 
-ただ、ファイル名が求められているようです。PostGISはファイルではないので、できないかも知れませんね。
+ただ、ファイル名が求められているようです。
+
+これだと、できないかも知れませんね。PostGISはファイルではないですから。
 
 いや、できるかも知れません。
+
+## QGISのデータソースもファイル以外に対応
 
 というのも、QGISもgdalを持っています。ということは、ファイル名を指定するべきところで``PG:``で始まる接続文字列を入れると動くのではないか、と考えられないでしょうか？
 
@@ -213,6 +233,11 @@ QGISのメニューから「レイヤ」→「レイヤを追加」→「ラス�
 ```
 PG:dbname=(データベース名) table=(テーブル名) port=(ポート番号) user=(ユーザ名) password=(パスワード)
 ```
+
+## 表示できた
+
+せっかくなのでPostGISラスタをデータソースとして指定してQGISで表示させた結果を示します。
+
 
 # おわりに
 

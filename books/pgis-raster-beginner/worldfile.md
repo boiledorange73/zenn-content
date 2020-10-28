@@ -65,7 +65,7 @@ a23
 
 まず「ラスタデータ」のもととなるビットマップファイルをダウンロードして下さい。
 
-![0.png](https://storage.googleapis.com/zenn-user-upload/3lf3sz1fiu2khnxxmb14n0prcrtc)
+![0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/0.png?raw=true)
 
 なんてことはない、20px * 20px のPNG画像です。
 
@@ -102,13 +102,13 @@ uy = -1 * py + 20
 
 これは、左上隅ピクセルの中心が(10,20)で、セルサイズが横方向に1, 縦方向に1となることを示しています。
 
-同じフォルダで、先ほどダウンロードした [0.png](https://storage.googleapis.com/zenn-user-upload/3lf3sz1fiu2khnxxmb14n0prcrtc) を単純に複写して 1.png を作り、GISで読み込んでみてください。次のように表示されると思います。
+同じフォルダで、先ほどダウンロードした [0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/0.png?raw=true) を単純に複写して 1.png を作り、GISで読み込んでみてください。次のように表示されると思います。
 
-![表示された0.png](https://storage.googleapis.com/zenn-user-upload/zardvqo67r4ackh98poxrfc8lrdw)
+![表示された0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/1.png?raw=true)
 
 これに、(10,20)の位置に円を描いてみます。
 
-![(10,20)に点を打った0.png](https://storage.googleapis.com/zenn-user-upload/urbb7q2l0sa7gp4r7no9ov6tkxya)
+![(10,20)に点を打った0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/2.png?raw=true)
 
 左上隅のピクセルの中心あたりに円が描かれました。
 
@@ -132,9 +132,9 @@ ux =  2 * px + 10
 uy = -1 * py + 20
 ```
 
-同じフォルダで、先ほどダウンロードした [0.png](https://storage.googleapis.com/zenn-user-upload/3lf3sz1fiu2khnxxmb14n0prcrtc) を単純に複写して 2.png を作り、GISで読み込んでみてください。
+同じフォルダで、先ほどダウンロードした [0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/0.png?raw=true) を単純に複写して 2.png を作り、GISで読み込んでみてください。
 
-![横長になった図](https://storage.googleapis.com/zenn-user-upload/d8cxbn2rcninng1ezpjaqtx3x3d6)
+![横長になった図](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/3.png?raw=true)
 
 たしかに横長になりました。
 
@@ -184,15 +184,15 @@ ux = 0.6 * px + 0.8 * py + 10
 uy = 0.8 * px - 0.6 * py + 20
 ```
 
-これもやはり、同じフォルダで、先ほどダウンロードした [0.png](https://storage.googleapis.com/zenn-user-upload/3lf3sz1fiu2khnxxmb14n0prcrtc) を単純に複写して 3.png を作り、GISで読み込んでみてください。
+これもやはり、同じフォルダで、先ほどダウンロードした [0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/0.png?raw=true) を単純に複写して 3.png を作り、GISで読み込んでみてください。
 
-![回転した図](https://storage.googleapis.com/zenn-user-upload/5dqaez30otu5iv0d8rzcy1erlh3y)
+![回転した図](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/4.png?raw=true)
 
 回転しているのが見えます。
 
 1.png と重ねると、次のようになります。
 
-![回転前と回転後を重ねた図](https://storage.googleapis.com/zenn-user-upload/uok8imi14xum23duz5vvnb51g50t)
+![回転前と回転後を重ねた図](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/5.png?raw=true)
 
 ## スキューのある行列
 
@@ -218,15 +218,15 @@ uy = 0.5 * px - 1 * py + 20
 
 これは、pxが1増えるたびに、uxは1.0, uyは0.5増えて、pxはux, uyの双方に影響を与えることになります。pyが1増えるたび、uyは1減るだけで、pyはuxのみに影響を与え、uxに影響は与えません。
 
-同じフォルダで、先ほどダウンロードした [0.png](https://storage.googleapis.com/zenn-user-upload/3lf3sz1fiu2khnxxmb14n0prcrtc) を単純に複写して 4.png を作り、GISで読み込んでみてください。
+同じフォルダで、先ほどダウンロードした [0.png](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/0.png?raw=true) を単純に複写して 4.png を作り、GISで読み込んでみてください。
 
-![スキューした図](https://storage.googleapis.com/zenn-user-upload/fmnx0ja3ohlwsaftkw7l50hazv4i)
+![スキューした図](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/6.png?raw=true)
 
 Yの上方向にスキューが行われました。
 
 1.png と重ねてみましょう。
 
-![スキュー前とスキュー後を重ねた図](https://storage.googleapis.com/zenn-user-upload/4y3vvovt37dd1mkbbgomryz4vsmj)
+![スキュー前とスキュー後を重ねた図](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/worldfile/7.png?raw=true)
 
 ここでは示しませんが、2行目と3行目を入れ替えるとX方向へのスキューとなります。
 

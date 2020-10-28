@@ -81,7 +81,7 @@ PostGISラスタの「ドキュメント」によると、ワールドファイ�
 
 ワールドファイルの書式に従うと、左上隅セルの*中心*の位置とするべきだと考えることでしょう。しかし、PostGISラスタは、そうではなく、左上隅セルの*左上隅*の位置を記述します。
 
-![左上隅位置の違い](https://storage.googleapis.com/zenn-user-upload/3q6hfi9a09nhbpqei43f5ivk2dty)
+![左上隅位置の違い](https://github.com/boiledorange73/zenn-content/blob/main/books-images/pgis-raster-beginner/pgisraster/1.png?raw=true)
 
 ## スキュー
 
