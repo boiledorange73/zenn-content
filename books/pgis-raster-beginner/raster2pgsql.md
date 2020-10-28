@@ -214,43 +214,29 @@ Band 1 Block=600x400 Type=Float32, ColorInterp=Gray
 
 # QGISで見てみよう
 
-QGISのメニューから「レイヤ」→「レイヤを追加」→「ラスタレイヤを追加」と選択すると、追加したいラスタファイル名を求めるダイアログが現れます。
+「PostGISレイヤの追加」からPostGISラスタも追加することができます。追加方法は[QGISでPostGISのデータを見てみよう](https://zenn.dev/boiledorange73/books/b1de0a18073af70946e0/viewer/qgis)と同じですので、そちらをご覧下さい。
 
-ただ、ファイル名が求められているようです。
+rasterデータベースに接続したら、次のようになりました。
 
-これだと、できないかも知れませんね。PostGISはファイルではないですから。
+![データソースマネージャダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-raster-beginner/raster2pgsql/1.png)
 
-いや、できるかも知れません。
-
-## QGISのデータソースもファイル以外に対応
-
-というのも、QGISもgdalを持っています。ということは、ファイル名を指定するべきところで``PG:``で始まる接続文字列を入れると動くのではないか、と考えられないでしょうか？
-
-ためしにリモートで接続してみました。この際にputtyでフォワーディングさせていたためポート番号は5432ではないし、ユーザ名もパスワードも必要となりました。
-
-それでも無理ではありませんでした。次のように、ポート番号やユーザ認証情報もサポートされています。
-
-```
-PG:dbname=(データベース名) table=(テーブル名) port=(ポート番号) user=(ユーザ名) password=(パスワード)
-```
-
-ダイアログは次のようになります。
-
-![PostGISラスタをデータソースに指定しているところ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-raster-beginner/raster2pgsql/1.png)
-
-なんか違和感を感じます。
-
-## 表示できた
-
-せっかくなのでPostGISラスタをデータソースとして指定してQGISで表示させた結果を示します。
+``dem``というラスタカラムが追加対象選択肢として上がっているのが見えると思います。そのまま追加して下さい。
 
 ![PostGISラスタをQGISで表示しているところ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-raster-beginner/raster2pgsql/2.png)
 
+# QGISのデータソースもファイル以外に対応
+
+QGISもgdalを持っています。ということは、ファイル名を指定するべきところで``PG:``で始まる接続文字列を入れると動くのではないか、と考えられないでしょうか？
+
+QGISのメニューから「レイヤ」→「レイヤを追加」→「ラスタレイヤを追加」と選択すると、追加したいラスタのデータソースを求めるダイアログが現れます。
+
+![PostGISラスタをデータソースに指定しているところ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-raster-beginner/raster2pgsql/3.png)
+
+なんか違和感を感じます。でも表示できます。
 
 # おわりに
 
 本章では、GeoTIFFデータからSQLを生成してPostGISラスタに保存し、gdalinfoで確認し、QGISで表示する手順を紹介しました。
-
-また、PostGISデータをgdalで使用する場合の接続文字列の概要と、gdalだけでなくQGISも接続文字列に対応していることを紹介しました。
+その際に、PostGISラスタをgdalで使用する場合の接続文字列の概要と、QGISでも対応していることも紹介しました。
 
 これで、PostGISラスタについて、格納、表示という、基礎的なことができることが確認できました。
