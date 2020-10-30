@@ -11,6 +11,6 @@ chapters:
   - raster2pgsql
   - pickvalue
   - gdalmode
-  - pgisraster
   - constraint
+  - pgisraster
   - fgddem2pgsql

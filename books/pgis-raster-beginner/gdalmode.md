@@ -3,7 +3,7 @@ title: "modeという接続文字列"
 ---
 # はじめに
 
-https://gdal.org/drivers/raster/postgisraster.html に接続文字列が紹介されています。
+[指定位置の標高を得るクエリとインデックス](pickvalue)で、GDALのデータソースは、ファイルパスだけでなく、接続文字列で指定でいることを示しました。肝心のPostGISラスタの接続文字列は https://gdal.org/drivers/raster/postgisraster.html で紹介されています。
 
 ```
 PG:"[host=''] [port:''] dbname='' [user=''] [password=''] [schema=''] [table=''] [column=''] [where=''] [mode=''] [outdb_resolution='']"
@@ -19,9 +19,11 @@ PG:"[host=''] [port:''] dbname='' [user=''] [password=''] [schema=''] [table='']
 
 ## 複数のラスタを持っていると仮定します
 
+基盤地図情報サイト https://www.gsi.go.jp/kiban/ から10mメッシュでBタイプのDEMを4個持ってきました。具体的には、``FG-GML-5133-42-dem10b-20161001.xml``, ``FG-GML-5133-43-dem10b-20161001.xml``, ``FG-GML-5133-52-dem10b-20161001.xml``, ``FG-GML-5133-53-dem10b-20161001.xml`` です。
 
-``FG-GML-5133-42-dem10b-20161001.xml``, ``FG-GML-5133-43-dem10b-20161001.xml``, ``FG-GML-5133-52-dem10b-20161001.xml``, ``FG-GML-5133-53-dem10b-20161001.xml`` があるとします。
+## 変換して格納して下さい
 
+基盤地図情報のDEMからPostGISラスタへの変換は、私は https://github.com/boiledorange73/fgddem2pgsql というものを使いました。
 
 ```sh
 $ git clone https://github.com/boiledorange73/fgddem2pgsql
@@ -39,7 +41,7 @@ $ make install
 ``fgddem2pgsql``は、次のようにして動かします。
 
 ```sh
-$ fgddem2pgsql -p dem10 FG-GML-5133-42-dem10b-20161001.xml > table.sql
+$ fgddem2pgsql -p -I dem10 FG-GML-5133-42-dem10b-20161001.xml > table.sql
 
 $ for xml in *.xml
 do
@@ -48,7 +50,11 @@ do
   fgddem2pgsql -a dem10 "$xml" > "$sql"
   echo $sql
 done
+```
 
+まず``table.sql``を、続いて他の``.sql``ファイルを実行していきます。
+
+```
 psql -d raster -f table.sql
 psql -d raster -f FG-GML-5133-42-dem10b-20161001.sql
 psql -d raster -f FG-GML-5133-43-dem10b-20161001.sql
@@ -147,7 +153,7 @@ Band 1 Block=2048x1500 Type=Float32, ColorInterp=Gray
 
 ## 接続文字列で開いてみる
 
-[PostGISラスタにGeoTIFFデータを格納する[(../raster2pgsql)で、GDALでは、データソースはファイルパスだけでなく、接続文字列にも対応していることを説明しました。また、QGISで接続文字列が使えることも示しました。
+[PostGISラスタにGeoTIFFデータを格納する](raster2pgsql)で、GDALでは、データソースはファイルパスだけでなく、接続文字列にも対応していることを説明しました。また、QGISで接続文字列が使えることも示しました。
 
 接続文字列を使えるなら、``mode=2``で4個のラスタを1個ととらえるようにすると、4個全部表示できるかも知れません。
 
@@ -163,4 +169,12 @@ QGISでは次のように表示されました。
 
 上記より多く表示されているので、``mode=2``が反映されたことが確認できました。
 
+# おわりに
 
+GDALの接続文字列のうち``mode``を中心に紹介しました。また、``where``も若干説明しました。
+
+``mode``によって``gdalinfo``等のGDALツールでのPostGISラスタの見え方が違ってくる点と、QGISでも見え方が違う点について、分かって頂けたと思います。
+
+# 出典
+
+本記事では、国土地理院が発行する[基盤地図情報](https://www.gsi.go.jp/kiban/) を使用しました。
