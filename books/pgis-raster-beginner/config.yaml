@@ -9,6 +9,8 @@ chapters:
   - whatisraster
   - worldfile
   - raster2pgsql
+  - pickvalue
+  - gdalmode
   - pgisraster
   - constraint
   - fgddem2pgsql
