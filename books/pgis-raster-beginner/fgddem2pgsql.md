@@ -13,7 +13,7 @@ https://github.com/boiledorange73/fgddem2pgsql にあります。
 
 Expat (http://expat.sourceforge.net/) が必要です。
 
-Shift_JIS文書に対応するために、iconvが必要用に思うかも知れませんが、Shift_JISに対してはひどいことをしているのでiconvは使っていません。
+Shift_JIS文書に対応するために iconv が必要用に思うかも知れませんが、Shift_JISは無視しているので iconv は使っていません。
 
 # fgddem2pgsql
 

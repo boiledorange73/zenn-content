@@ -1,7 +1,7 @@
-title: "PostGIS ラスタ 入門"
+title: "PostGIS ラスタ 入門（仮）"
 summary: "PostGIS ラスタについて、そもそもラスタとは何かを紹介したうえで、ラスタデータをPostGISに格納してみるところまで行います。"
 topics: [PostGIS]
-published: false
+published: true
 price: 0 # 有料の場合200?5000
 # 本に含めるチャプターを順番に並べましょう
 chapters:
