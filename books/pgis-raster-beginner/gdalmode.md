@@ -25,7 +25,7 @@ PG:"[host=''] [port:''] dbname='' [user=''] [password=''] [schema=''] [table='']
 
 基盤地図情報のDEMからPostGISラスタへの変換は、私は https://github.com/boiledorange73/fgddem2pgsql というものを使いました。
 
-```sh
+```bash
 $ git clone https://github.com/boiledorange73/fgddem2pgsql
 ...
 $ cd fgddem2pgsql
@@ -40,7 +40,7 @@ $ make install
 
 ``fgddem2pgsql``は、次のようにして動かします。
 
-```sh
+```bash
 $ fgddem2pgsql -p -I dem10 FG-GML-5133-42-dem10b-20161001.xml > table.sql
 
 $ for xml in *.xml
@@ -98,7 +98,7 @@ Subdatasets:
 その通りやってみます。
 
 ```
-gdalinfo "PG:dbname=raster table=dem10 mode=1 where='rid=1' user=postgres password=****"
+% gdalinfo "PG:dbname=raster table=dem10 mode=1 where='rid=1' user=postgres password=****"
 Driver: PostGISRaster/PostGIS Raster driver
 Files: none associated
 Size is 1125, 750

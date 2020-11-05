@@ -131,7 +131,7 @@ RasterJSONRasterBand::IReadBlock
 
 普通に.soファイルを作ります。この際、ファイル名を``gdal_(フォーマット名).so``とします。フォーマット名は大文字小文字の区別がありますので、ご注意ください。RasterJSONというフォーマットのドライバをGNU C++でコンパイルする場合には、次のようになります。
 
-```sh
+```bash
 c++ -fPIC -shared RasterJSON.cpp -o gdal_RasterJSON.so `gdal-config --cflags` `gdal-config --libs` (ほかのオプション)
 ```
 
@@ -139,7 +139,7 @@ c++ -fPIC -shared RasterJSON.cpp -o gdal_RasterJSON.so `gdal-config --cflags` `g
 
 ``$(PREFIX)/lib/gdalplugins``というディレクトリができていて、ここに投入すれば読みに行ってくれるようになっています。rootになって、次のようにすれば入ります。
 
-```sh
+```bash
 cp gdal_RasterJSON.so "`gdal-config --prefix`/lib/gdalplugins"
 ```
 
