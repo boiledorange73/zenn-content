@@ -10,6 +10,7 @@ chapters:
   - worldfile
   - raster2pgsql
   - pickvalue
+  - calcpixel
   - gdalmode
   - constraint
   - pgisraster
