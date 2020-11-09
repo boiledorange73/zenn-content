@@ -1,4 +1,4 @@
-title: "PostGIS ラスタ 入門（仮）"
+title: "PostGIS ラスタ 入門"
 summary: "PostGIS ラスタについて、そもそもラスタとは何かを紹介したうえで、ラスタデータをPostGISに格納してみるところまで行います。「PostGIS入門」をご覧になっている前提で記述しています。"
 topics: [PostGIS]
 published: true
