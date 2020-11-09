@@ -58,6 +58,41 @@ FROM dem;
 
 ここで注意して頂きたいのは、新しいラスタを生成している点です。引数で与えられたラスタは変更されません。
 
+## ST_MapAlgebraExpr()
+
+さきほどのクエリで``ST_MapAlgebraExpr()``というものが出ていました。この関数について見てみましょう。詳細については、たとえば http://aginfo.cgk.affrc.go.jp/docs/pgisman/3.0.0/RT_ST_MapAlgebraExpr.html を参照して下さい。
+
+``band``を指定する形式と``band``を指定しない形式があり、それぞれ次のような宣言になっています。
+
+```
+raster ST_MapAlgebraExpr(raster rast, integer band, text pixeltype, text expression, double precision nodataval=NULL);
+raster ST_MapAlgebraExpr(raster rast, text pixeltype, text expression, double precision nodataval=NULL);
+```
+
+引数の意味は次の通りです。
+
+- ``rast``はラスタデータそのもの
+- ``band``はバンド番号（指定しない場合は1と仮定）
+- ``pixeltype``は出力のピクセルタイプ
+- ``expression``は数式（文字列）
+- ``nodataval``はNODATA値
+
+先ほどのクエリの一部を見てみます。
+
+```sql
+ST_MapAlgebraExpr(
+  rast,
+  NULL,
+  'CASE WHEN [rast]::NUMERIC >= 10 THEN 1 ELSE 0 END'
+)
+```
+
+- DEMは通常は1バンドですので、``band``を指定しません
+- ``pixeltype``が``NULL``に指定した場合には、出力ピクセルタイプは入力ピクセルタイプと同じにして返します
+- ``expression``の数式は、ご覧の通り、PostgreSQLの数式です。
+
+返り値は、ラスタデータそのものです。この点にも気を付けてください。新たなデータが生成されるのですから、返り値は、どこかのテーブルに格納します。
+
 ## QGISで見てみる
 
 QGISで様子を見てみましょう。次のようになります。

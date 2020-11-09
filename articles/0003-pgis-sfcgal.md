@@ -34,16 +34,16 @@ PostGISのコンフィギュア時に `--with-sfcgal=/.../sfcgal-config` を追�
 
 PostGIS 2.2 では、次のステートメントを順次実行します。
 
-```psql
-% psql -d (データベース) -c "CREATE EXTENSION postgis"
-% psql -d (データベース) -c "CREATE EXTENSION postgis_sfcgal"
+```sh
+$ psql -d (データベース) -c "CREATE EXTENSION postgis"
+$ psql -d (データベース) -c "CREATE EXTENSION postgis_sfcgal"
 ```
 
 2.1ではEXTENSIONではなく、別途インストール用スクリプトがあります。
 
-```csh
-% psql -d (データベース) -c "CREATE EXTENSION postgis"
-% psql -d (データベース) -f (postgresql)/contrib/sfcgal.sql
+```sh
+$ psql -d (データベース) -c "CREATE EXTENSION postgis"
+$ psql -d (データベース) -f (postgresql)/contrib/sfcgal.sql
 ```
 
 
