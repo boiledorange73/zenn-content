@@ -46,7 +46,7 @@ ERROR:  When converting to 3D - PolyhedralSurface is invalid : not connected : P
 
 要素が接続されていても、要素が右回りか左回りかに統一されていないといけません。接続する線においては、二つのポリゴンは互いに逆方向に向きます。
 
-![隣接ポリゴンと巡回方向](https://storage.googleapis.com/zenn-user-upload/qhwpj6ch2jky4ztgfd2rhe5m9k8e)
+![隣接ポリゴンと巡回方向](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0029/1.png)
 
 ```sql
 SELECT ST_3DArea('POLYHEDRALSURFACE(((0 0, 10 0, 10 10, 0 0)),((0 0, 10 0, 10 -10, 0 0)))'::geometry);

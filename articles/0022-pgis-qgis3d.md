@@ -37,17 +37,17 @@ WCSでやろうとするとQGISがダウンしてしまいました。
 
 「ブラウザ」ペインの"XYZ Tiles"を右クリックして「新しい接続」を選択します。なお下図は既に"OpenStreetMap"があるのですが気にしないで下さい。
 
-![「新しい接続」を選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/371aji2kfst31v92b2hhy267bx55)
+![「新しい接続」を選択しようとしているところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/1.png)
 
 「XYZ接続」ダイアログで、名前（任意）、URL、有効ズームレベル範囲を指定します。
 
-![XYZ接続ダイアログ](https://storage.googleapis.com/zenn-user-upload/areujo0jid4ke7nyxst6108tfqrw)
+![XYZ接続ダイアログ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/2.png)
 
 ## OSMタイルの表示
 
 ひとたび登録しておくと、あとは、"OpenStreetMap"をダブルクリックするか、右クリックから「選択したレイヤをキャンパスに追加」を指定するだけです。
 
-![「選択したレイヤをキャンパスに追加」を実行しようとしているところ](https://storage.googleapis.com/zenn-user-upload/joddld06dg36wowstookverkg9c0)
+![「選択したレイヤをキャンパスに追加」を実行しようとしているところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/3.png)
 
 ## 三次元表示
 
@@ -55,27 +55,27 @@ WCSでやろうとするとQGISがダウンしてしまいました。
 
 「ビュー」メニューから「新しい3Dマップビュー」を選択します。
 
-![「新しい3Dマップビュー」を選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/nkx4mv5sm7x4q6eoer74p800rssk)
+![「新しい3Dマップビュー」を選択しようとしているところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/4.png)
 
 操作してみて下さい。たとえば下図のように視点を変更することができます。なお、起伏は現時点ではありませんが気にしないで下さい。
 
-![起伏が無い3D地図](https://storage.googleapis.com/zenn-user-upload/4e9b6z5356c2vt9w6jjamekri18f)
+![起伏が無い3D地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/5.png)
 
 ### demext.tifが標高データであることを指示する
 
 3Dマップビューの上で設定アイコンをクリックします。
 
-![3Dマップビューの設定アイコン](https://storage.googleapis.com/zenn-user-upload/m1shvs3hxzwmj3eukmhr9dv1q5vt)
+![3Dマップビューの設定アイコン](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/6.png)
 
 3Dコンフィギュレーションが出ます。「高さ」でdemext.tifを指定すると、demext.tifが標高データとして反映されます。
 
 なお"demext.tif"が存在しない場合には、DEMデータを得て、QGISにレイヤとして登録して下さい。
 
-![3Dコンフィグレーションで鉛直スケールを選択しようとしているところ](https://storage.googleapis.com/zenn-user-upload/fpb3ijrl1vjq4pkaexmb2pstnod4)
+![3Dコンフィグレーションで鉛直スケールを選択しようとしているところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/7.png)
 
 高さのデータソースを指定すると、次のように地形が表示されます。
 
-![3D地図](https://storage.googleapis.com/zenn-user-upload/b50hyrzduya5dqj4ajwhc03tm9x5)
+![3D地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/8.png)
 
 蔵王山とかが美しく表示されました（どこやねん）。
 
@@ -150,7 +150,7 @@ https://medium.com/the-pointscene-diaries/qgis-3d-buildings-tutorial-1e0111fcd76
 
 OSMのタイル地図画像、DEMとしてdemext.tif、地物データとしてcubeとが全てロードされているとします。なおdemextは表示させていません。
 
-![cubeとOSMによる２Dの地図](https://storage.googleapis.com/zenn-user-upload/f1i5xb4gcu71a5phvpe2n9z22qzb)
+![cubeとOSMによる２Dの地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/9.png)
 
 ## レイヤの三次元表示を有効にする
 
@@ -158,7 +158,7 @@ OSMのタイル地図画像、DEMとしてdemext.tif、地物データとしてc
 左側のペインから「3Dマップビュー」を選択します。
 「3Dレンダラを有効にする」チェックボックスにチェックを入れます。
 
-![レイヤプロパティで「3Dレンダラを有効にする」を有効にしたところ](https://storage.googleapis.com/zenn-user-upload/oxr6tprv90r4wokfebxiir5thtmo)
+![レイヤプロパティで「3Dレンダラを有効にする」を有効にしたところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/10.png)
 
 あと、色を変えたいなら「拡散」「アンビエント」等をいじってみて下さい。
 
@@ -166,11 +166,11 @@ OSMのタイル地図画像、DEMとしてdemext.tif、地物データとしてc
 
 3Dマップビューを上げると、三次元で地物が表示されます。
 
-![地物を表示するが地形起伏のない3D地図](https://storage.googleapis.com/zenn-user-upload/jlx3roqgc9kgx6a2v6hfemqgm4bp)
+![地物を表示するが地形起伏のない3D地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/11.png)
 
 DEMがあれば、地形も出せます。ただし、地物の鉛直方向の位置を決める際に、地形は考慮されないようです。
 
-![地物を表示する3D地図](https://storage.googleapis.com/zenn-user-upload/0hb0s83g2s9adui357afzvjp7ozh)
+![地物を表示する3D地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0022/12.png)
 
 ちょっと分かりにくいとは思いますが、地面が小高い丘の斜面になったぶん、箱型地物をめり込ませることができました。
 

@@ -115,19 +115,19 @@ Band 1 Block=4000x1 Type=Float32, ColorInterp=Gray
 
 まずは、ラスタレイヤを追加して、グレースケールで見てみます。
 
-![グレースケール](https://storage.googleapis.com/zenn-user-upload/5hq7ii5x8skogacpaukhotmbao4v)
+![グレースケール](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0028/1.png)
 出典：兵庫県_全域DEM（2010年度～2018年度）、兵庫県
 
 次に陰影図を見ます。陰影図の作成は「ラスタ」→「解析」→「陰影図 (hillshade) ...」を選択します。
 
-![陰影](https://storage.googleapis.com/zenn-user-upload/bmzxfveg5188nt40is9zo5y1eup6)
+![陰影](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0028/2.png)
 出典：兵庫県_全域DEM（2010年度～2018年度）、兵庫県
 
 田んぼのあぜが見えます。
 
 3D表示もやってみましょう。詳細は[標準装備のQGISで三次元表示ができるよ!](0022-pgis-qgis3d)を参照して下さい。
 
-![3次元表示](https://storage.googleapis.com/zenn-user-upload/3oa98n314y8tkgul4jhxenbvx40m)
+![3次元表示](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0028/3.png)
 出典：兵庫県_全域DEM（2010年度～2018年度）、兵庫県
 
 今回は、標高のグレースケールだけで表示していますが、空中写真等をかぶせると、結構見ごたえのある絵になります。

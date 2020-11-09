@@ -23,11 +23,11 @@ published: true
 
 右手系の軸は斜め上から見たら次の図のようになります。
 
-![右手系を斜めから見た図](https://storage.googleapis.com/zenn-user-upload/w5jioe1m43huml5563p0tmwnv906)
+![右手系を斜めから見た図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/1.png)
 
 右手系を真上から見たら次のようになります。
 
-![右手系を真上から見た図](https://storage.googleapis.com/zenn-user-upload/6d2akf2t16pv1u65g61u8clx4u28)
+![右手系を真上から見た図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/2.png)
 
 [フレミング右手の法則](https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AC%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AE%E5%8F%B3%E6%89%8B%E3%81%AE%E6%B3%95%E5%89%87)を思い出して下さい。
 
@@ -43,11 +43,11 @@ published: true
 
 左手系の軸は斜め上から見たら次の図のようになります。
 
-![左手系を斜めから見た図](https://storage.googleapis.com/zenn-user-upload/jo1rama0vtt2qwvuikbnxuf08fwc)
+![左手系を斜めから見た図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/3.png)
 
 左手系を真上から見たら次のようになります。
 
-![左手系を真上ら見た図](https://storage.googleapis.com/zenn-user-upload/6awsrbq41x2agslbpcy7p3ts2ora)
+![左手系を真上ら見た図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/4.png)
 
 右手系でやったことと同じことを左手でやってみると、WikiPediaの[右手系](https://ja.wikipedia.org/wiki/%E5%8F%B3%E6%89%8B%E7%B3%BB)に出てる図の「左手系」と説明されている図に、親指(X)、人差し指(Y)、中指(Z)を割り当ててみて下さい。すんなり当てはまると思います。これが左手系です。
 
@@ -61,13 +61,13 @@ $(x,y) = (cos(\theta),sin(\theta))$の式をプロットします。
 
 右手系だと、$\theta$が$0$だと東方向で、$\theta$が増加すると、北、西、南、と向きを変えます（左回り=反時計回り）。高校数学の``(cos, sin)``のグラフで見慣れたものです。
 
-![右手系とΘとの関係](https://storage.googleapis.com/zenn-user-upload/7jm312zb0zg3lr9ku0v53oe0hcrn)
+![右手系とΘとの関係](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/5.png)
 
 ### 左手系だと
 
 左手系だと、$\theta$が$0$だと北方向で、$\theta$が増加すると、東、南、西、と向きを変えます（右回り=時計回り）。ちょうど、方位の取り方と同じです。
 
-![左手系とΘとの関係](https://storage.googleapis.com/zenn-user-upload/gnttphjwyqogexq9wsyjxdaowi5t)
+![左手系とΘとの関係](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/6.png)
 
 ### 右手系と左手系とでは方位が違う
 
@@ -85,13 +85,13 @@ $$
 
 下図のようになります。
 
-![時計回りを矢印で表現した正方形](https://storage.googleapis.com/zenn-user-upload/ze2ekbg9u3bfu7nj2kgps6xsmh37)
+![時計回りを矢印で表現した正方形](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/7.png)
 
 ### 右手系の場合
 
 右手系の座標軸を書き入れてみます。
 
-![時計回りと右手系の軸との関係](https://storage.googleapis.com/zenn-user-upload/sr7xtgaqzirispwvje9l7141rpli)
+![時計回りと右手系の軸との関係](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/8.png)
 
 ``POLYGON((0 0, 10 0, 10 10, 0 10, 0 0))``となります。クロス積の合計を計算すると、``0+100+100+0=200``と、正となります。
 
@@ -99,7 +99,7 @@ $$
 
 左手系の座標軸を書き入れてみます。
 
-![時計回りと左手系の軸との関係](https://storage.googleapis.com/zenn-user-upload/11y8pbm9o1b4vqfyzr1o1kux85be)
+![時計回りと左手系の軸との関係](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0040/9.png)
 
 ``POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))``となります。クロス積の合計を計算すると、``0-100-100+0=-200``と、負となります。
 

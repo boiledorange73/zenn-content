@@ -76,17 +76,17 @@ SELECT mcode, ST_Simplify(ST_Transform(geom,3857), 100) FROM w_mncpl;
 
 これを図示すると次のようになります。
 
-![良くない簡略化地図](https://storage.googleapis.com/zenn-user-upload/e574k7l3794ioq3e1sqimcztrlsb)
+![良くない簡略化地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0011/1.png)
 
 問題ないように見えますね。でもこれを拡大してみましょう。
 
-![良くない簡略化地図の一部拡大表示](https://storage.googleapis.com/zenn-user-upload/rhg82hlvwsspaigruvzemsgd27uh)
+![良くない簡略化地図の一部拡大表示](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0011/2.png)
 
 隙間ができてしまいました。
 
 塗りつぶしの不透過度を下げてみましょう。
 
-![良くない簡略化地図の一部拡大して不透過度を下げて表示](https://storage.googleapis.com/zenn-user-upload/tbirbwfw9wjon59mcsnlo8ks1w60)
+![良くない簡略化地図の一部拡大して不透過度を下げて表示](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0011/3.png)
 
 状況がもう少し複雑で、隙間のほか、重なりも確認できました。
 
@@ -204,7 +204,7 @@ SELECT mcode, ST_Simplify(topo,100)
 FROM topogeom_jp_3857 ORDER BY gid;
 ```
 
-ここでのポイントは、トポジオメトリを引数に取る``ST_Simplify`` (簡略化関数)がある、ということです。たとえば http://www.finds.jp/docs/pgisman/2.5.0/TP_ST_Simplify.html を参照して下さい。
+ここでのポイントは、トポジオメトリを引数に取る``ST_Simplify`` (簡略化関数)がある、ということです。たとえば http://aginfo.cgk.affrc.go.jp/docs/pgisman/2.5.0/TP_ST_Simplify.html を参照して下さい。
 
 これで、何も考えずにトポロジを基にした簡略化が簡単にできるようになっています。
 
@@ -212,13 +212,13 @@ FROM topogeom_jp_3857 ORDER BY gid;
 
 さきほどと同じ地域を見てみます。
 
-![トポロジによる簡略化の結果](https://storage.googleapis.com/zenn-user-upload/91v0vpkvmfsy8jq3nxltnhxngxwv)
+![トポロジによる簡略化の結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0011/4.png)
 
 隙間はありません。
 
 塗りつぶしの不透過度を下げて、重複を見てみましょう。
 
-![トポロジによる簡略化の結果を不透過度を下げて表示](https://storage.googleapis.com/zenn-user-upload/flduumybswkvx2ek8hx69z14moo2)
+![トポロジによる簡略化の結果を不透過度を下げて表示](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0011/5.png)
 
 何も変わりないように見えますが、これを求めていたのです、重複が無いのが確認できました。
 

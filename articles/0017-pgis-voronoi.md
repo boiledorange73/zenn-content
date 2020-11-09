@@ -46,7 +46,7 @@ db=# SELECT ST_AsText(
 
 次のようになります。
 
-![ST_VoronoiPolygonsの結果](https://storage.googleapis.com/zenn-user-upload/97g205ut3ezp038im6kijdw0dcie)
+![ST_VoronoiPolygonsの結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0017/1.png)
 
 前の記事の画像と比較してみて下さい。
 
@@ -70,7 +70,7 @@ db=# SELECT ST_AsText(
 
 図で示すと次のようになります。
 
-![ST_VoronoiLinesの結果](https://storage.googleapis.com/zenn-user-upload/6v4jkuxb9ef3838bw57qdca8izv1)
+![ST_VoronoiLinesの結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0017/2.png)
 
 ポリゴンと違い、各サイトを閉じたラインストリングにする必要が無いので、ボロノイ辺だけが出力されています。
 

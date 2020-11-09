@@ -112,20 +112,20 @@ http://www.epsg-registry.org/ に、EPSGの空間参照系検索サイトがあ�
 
 左上の"retrieve by code"をクリックして、コード検索を行います。
 
-![トップページの左上部分](https://storage.googleapis.com/zenn-user-upload/r1uovd7ttt29pie5uimrdynhd5kw)
+![トップページの左上部分](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0045/1.png)
 
 ## EPSG:4326は北-東のオーダー
 
 Codeに``4326``を入れてみます。
 検索結果は、次のように2件出ますが、typeがareaのものは今回は不要なので、``WGS 84``のみ見てください。
 
-![2件がヒットした様子](https://storage.googleapis.com/zenn-user-upload/zub450wprxfttn20bvnue01vfewd)
+![2件がヒットした様子](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0045/2.png)
 
 座標系の定義がざーっと表示されます。
 
 今回は、axis orderのみを見るので、"Ellipsoidal CS"を開いてみます。
 
-![EPSG:4326の座標軸の定義](https://storage.googleapis.com/zenn-user-upload/07v1usk6sdwxhfqcvzm3uwoywi56)
+![EPSG:4326の座標軸の定義](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0045/3.png)
 
 "Axes"の表を見ると、1番目が"Lat"で北方向、2番目が"Lon"で東方向、となっているのが分かります。
 
@@ -136,7 +136,7 @@ Codeに``4326``を入れてみます。
 同じようにして、EPSG:3857も見てみます。
 同じように検索して表示させるのですが、注目するカテゴリ名は、"Cartesian CS"となります。EPSG:4326の時は"Ellipsoidal CS"でしたので、名称が異なりますが、とりあえず気にしないで下さい。
 
-![EPSG:3857の座標軸の定義](https://storage.googleapis.com/zenn-user-upload/6hoawb1sdo8zz1u9e1p913sj9041)
+![EPSG:3857の座標軸の定義](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0045/4.png)
 
 以上から、EPSG:3857のaxis orderは横(東西)-縦(南北)の順になることが、これで分かります。
 
@@ -168,7 +168,7 @@ mysql> SELECT HEX(ST_AsWKB(ST_GeomFromText('POINT(1 2)', 2443)));
 
 EPSGレジストリを見てみます。
 
-![平面直角座標系1系のaxis order](https://storage.googleapis.com/zenn-user-upload/jbt666z7fydp9vkezj2lg4nfy34p)
+![平面直角座標系1系のaxis order](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0045/5.png)
 
 ご覧の通り、North-Eastの順となっているので、EPSG:4326と同様、axis orderは縦(南北)-横(東西)の順になります。
 

@@ -81,7 +81,7 @@ ST_3DUnion(
 ' As x3ddoc;
 ```
 
-![ST_3DUnionの結果](https://storage.googleapis.com/zenn-user-upload/en011kad24l35dhe4cgb7seltj0y)
+![ST_3DUnionの結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0004/1.png)
 
 # 交わり
 
@@ -122,7 +122,7 @@ ST_3DIntersection(
 ' As x3ddoc;
 ```
 
-![ST_3DIntersectionの結果](https://storage.googleapis.com/zenn-user-upload/w4jrwle46r14ts763ohok7r66n2e)
+![ST_3DIntersectionの結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0004/2.png)
 
 これはちょっと見えにくいと思いますが、円柱のうち立方体内に潜っている部分です。
 
@@ -165,7 +165,7 @@ ST_3DDifference(
 ' As x3ddoc;
 ```
 
-![ST_3DDifferenceの結果](https://storage.googleapis.com/zenn-user-upload/olw6nfozdvstomn2uj11dhamc7d5)
+![ST_3DDifferenceの結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0004/3.png)
 
 立方体に、円柱（の一部）で穴を開けたようになっているのが見えます。
 

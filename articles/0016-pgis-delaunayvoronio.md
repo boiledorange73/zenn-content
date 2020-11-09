@@ -24,7 +24,7 @@ PostGIS 2.1以上では、ドロネー図を生成する関数が用意されて
 
 ## ボロノイ図
 
-![ボロノイ図](https://storage.googleapis.com/zenn-user-upload/2xl1z9pub6f6m5wpwvk6aa9usngc)
+![ボロノイ図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/1.png)
 
 複数のポイント（複数の母点）から、どのポイントに最も近いかで領域を分けた図をボロノイ図といいます。
 
@@ -36,7 +36,7 @@ PostGIS 2.1以上では、ドロネー図を生成する関数が用意されて
 
 ## ドロネー図
 
-![ドロネー図](https://storage.googleapis.com/zenn-user-upload/cgu1ecjm6yzk63kdh8vior1o3gmr)
+![ドロネー図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/2.png)
 
 ドロネー図は、母点を頂点とした三角形で分割したもので、三角形の最小内角が最大になるようにしたものです。
 
@@ -48,7 +48,7 @@ PostGIS 2.1以上では、ドロネー図を生成する関数が用意されて
 
 ドロネー図はボロノイ図から生成する方法があり、関係が深いものです。
 
-![ドロネー図とボロノイ図を重ねた様子](https://storage.googleapis.com/zenn-user-upload/b78lvjwd636quzgkye10addkxg3d)
+![ドロネー図とボロノイ図を重ねた様子](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/3.png)
 
 ドロネー図の辺はボロノイ図の隣接関係を示すグラフです。上の図でいうと、ボロノイ辺（青線）を共有する領域の母点間にドロネー辺（赤線）が引かれています。
 
@@ -98,7 +98,7 @@ POINT(19 6)
 
 表示させると、次のようになります。
 
-![ポイント](https://storage.googleapis.com/zenn-user-upload/78vtq5pef1ob3klbmb2lfh9j9buj)
+![ポイント](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/4.png)
 
 # ドロネー図を作り外接円中心点を追加する
 
@@ -132,7 +132,7 @@ FROM (
 
 結果、次のようになります。
 
-![ドロネー図](https://storage.googleapis.com/zenn-user-upload/43zz44tvdp97rfzx2bfo4qijwtnl)
+![ドロネー図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/5.png)
 
 ## 三角形の三辺を格納する
 
@@ -163,11 +163,11 @@ SET
 
 母点と、circular1(赤線)、circular2(青線)とを表示すると、次のようになります。このうち、circular1とcircular2とは一部が重なっています。
 
-![二種類の円弧の図](https://storage.googleapis.com/zenn-user-upload/u345bk5jk5ll8a4u2gk8acc1n16m)
+![二種類の円弧の図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/6.png)
 
 これにドロネー三角形をあわせると、次のようになります。
 
-![二種類の円弧の図とドロネー図](https://storage.googleapis.com/zenn-user-upload/5d3qsatm3tupxp5vespm7pemv7qu)
+![二種類の円弧の図とドロネー図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/7.png)
 
 circular1, circular2から外接円を生成し、外接円中心点を格納します。``ST_Union(circular1, circular2)``でマルチラインストリングの近似外接円を生成し、``ST_ConvexHull``でポリゴン化し、``ST_Centroid``で中心点を得ます。``ST_ConvexHull``では思ったものと全く違う図形が生成されることがあると思われるかも知れませんが、円は凸ですので問題にはなりません。
 
@@ -176,7 +176,7 @@ UPDATE triangles SET centroid = ST_Centroid(ST_ConvexHull(ST_Union(circular1, ci
 ```
 外接円と中心点とを描いた図を次に示します。
 
-![外接円と中心点の図](https://storage.googleapis.com/zenn-user-upload/4bze2v7hecp8flgi5tsgqjshj6ij)
+![外接円と中心点の図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/8.png)
 
 # 三辺と外接円中心点を別テーブルに抜き出す
 
@@ -244,7 +244,7 @@ FROM edges AS Q1 LEFT JOIN edges AS Q2 ON Q1.gid <> Q2.gid AND ST_Equals(Q1.edge
 
 次の図は、赤線が``Q1``と``Q2``とが辺を共有している場合の線、青線が``Q1``と``Q2``とが辺を共有していない場合の線を示しています。
 
-![共有辺と非共有辺](https://storage.googleapis.com/zenn-user-upload/gt8jbxt6k1eqiqxbf66t3buw8tcf)
+![共有辺と非共有辺](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/9.png)
 
 この線がボロノイ辺となっています。
 
@@ -291,7 +291,7 @@ FROM result_multiline;
 
 結果、次のようになり、ポリゴン生成が可能となります。
 
-![ポリゴン化可能なラインストリング](https://storage.googleapis.com/zenn-user-upload/yvp19e8rpj7jpn99k0zxov21heci)
+![ポリゴン化可能なラインストリング](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/10.png)
 
 ## ポリゴン化する
 
@@ -312,7 +312,7 @@ WHERE ST_GeometryType(geom) = 'ST_Polygon';
 
 ``MULTIPOINT(0 0, 10 0, 10 10, 0 10)``のマルチポイントと、それに対する本クエリの結果は、次のようになります。
 
-![四角形の角にあたるマルチポイントに対するボロノイ図](https://storage.googleapis.com/zenn-user-upload/c8j016eyjybti24ok0z30tan41sm)
+![四角形の角にあたるマルチポイントに対するボロノイ図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0016/11.png)
 
 母点がボロノイ辺上にあり、一見すると計算に失敗したかのように思います。
 

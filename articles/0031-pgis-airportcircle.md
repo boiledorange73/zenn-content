@@ -162,23 +162,23 @@ SELECT Q1.c28_005, airportreference.geom
 
 いろいろテストしてるビューなりテーブルがあるのですがそれは無視して、v_refptが灰色文字になっていることに注意して下さい。このままではレイヤとして選択できません。
 
-![v_refptがグレーアウトしているところ](https://storage.googleapis.com/zenn-user-upload/6ax51exqyh56jv3o1scaljeg32fq)
+![v_refptがグレーアウトしているところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/1.png)
 
 これは、QGISからは、ビューの行を識別する値が入っているカラムが分からないためです。QGISは行を識別する値が入っている（ユニークである）カラムが無いとレイヤにできません。QGISはテーブルに対しては主キーとなっているカラムを自動で探してくれるので、テーブルを表示する場合には問題になりませんが、ビューについてはユーザが指し示してやる必要があります。
 
 ここで、v_refptの行の「主キー」列をクリックして下さい。
 
-![v_refptの主キー列をクリックしたところ](https://storage.googleapis.com/zenn-user-upload/msqpsa6ji7c9j2irnolmtoznn21l)
+![v_refptの主キー列をクリックしたところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/2.png)
 
 「主キー」候補が現れますので、今回は c28_005 (空港名)を主キーとします。
 
 フォーカスを移すと、灰色文字から黒文字になったことが確認できます。
 
-![v_refptが選択可能になったところ](https://storage.googleapis.com/zenn-user-upload/p25hpm9jfm0os47oq2np0b5pj948)
+![v_refptが選択可能になったところ](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/3.png)
 
 こうなったら追加可能となります。
 
-![空港地図](https://storage.googleapis.com/zenn-user-upload/y9owp3jfknyeygsy0mgw0dbgiir5)
+![空港地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/4.png)
 
 # 半径4000mの円を作る
 
@@ -196,13 +196,13 @@ db=# SELECT ST_Buffer('SRID=4612;POINT(135 35)', 4000);
 
 結果は次のようになります。概ねの位置が分かるよう、基盤地図情報WMS配信サービス乗せています。
 
-![巨大な円](https://storage.googleapis.com/zenn-user-upload/1vlvtee55i6635k0qzeyw33dnvwl)
+![巨大な円](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/5.png)
 
 日本どこー？
 
 日本列島全体が見れる程度に縮尺を大きくしてみます。
 
-![日本列島と巨大な円の一部](https://storage.googleapis.com/zenn-user-upload/i4fv5f2oj43qvdpr5bp96yqhgdsa)
+![日本列島と巨大な円の一部](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/6.png)
 
 ああ、円の中に日本列島がすっぽり入っているわけですね。
 …4000mの円なのに？
@@ -222,7 +222,7 @@ db=# SELECT ST_Buffer('SRID=4612;POINT(135 35)'::GEOGRAPHY, 4000);
 
 改めて重ねて表示してみましょう。
 
-![地図と4000メートル円](https://storage.googleapis.com/zenn-user-upload/opuvlcy3hh6q9he3dpbzvfey7lu1)
+![地図と4000メートル円](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/7.png)
 
 うまくいきましたね。
 
@@ -292,7 +292,7 @@ ST_Bufferの返り値はジオグラフィ型です（なお引数がジオメ�
 
 これの結果をQGISで見てみましょう。なお、前述のとおり、主キー相当カラムは手動で指定しなければなりません。
 
-![広島空港近辺の地図と4000メートル円](https://storage.googleapis.com/zenn-user-upload/04lnye56t4d7ebbnorrg2ovc3gt6)
+![広島空港近辺の地図と4000メートル円](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0031/8.png)
 
 # おわりに
 

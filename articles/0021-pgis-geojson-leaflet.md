@@ -239,7 +239,7 @@ https://qiita.com/takahiro_itazuri/items/a80a0b3f285d5ada4af7 を参照して下
 
 こんなかんじになります。
 
-![POI表示地図アプリ実行画面](https://storage.googleapis.com/zenn-user-upload/uacdmw7x3h40fhe9khfaaqtkv02y)
+![POI表示地図アプリ実行画面](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0021/1.png)
 
 # おわりに
 
