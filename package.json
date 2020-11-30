@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/boiledorange73/zenn-content#readme",
   "dependencies": {
-    "zenn-cli": "^0.1.57"
+    "zenn-cli": "^0.1.58"
   }
 }
