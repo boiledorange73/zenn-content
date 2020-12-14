@@ -1,5 +1,5 @@
 ---
-title: "見よトポロジの実力を"
+title: "トポジオメトリ"
 ---
 
 # はじめに
@@ -51,6 +51,15 @@ db=# SELECT topology.AddTopoGeometryColumn(
                      1
 (1 行)
 ```
+
+``AddTopoGeometryColumn``の引数は次の通りです。
+
+1. 使用するトポロジ
+2. トポジオメトリのスキーマ
+3. トポジオメトリのテーブル名
+4. トポジオメトリのカラム名（カラムは新規に追加されます）
+5. トポジオメトリのジオメトリタイプ（``POINT``, ``LINE``, ``POLYGON``, ``COLLECTION``のいずれか）
+
 
 現時点でのトポロジのメタデータを見てみましょう。
 
@@ -115,8 +124,9 @@ publicスキーマに``topogeom_t1_3857.topo``があります。これがトポ�
 長方形でした。
 
 
-# 単純化させてみよう
+# 簡略化させてみよう
 
+まず、受け皿となるテーブルを作ります。
 
 ```
 CREATE TABLE simplified_3857 (
@@ -126,11 +136,23 @@ CREATE TABLE simplified_3857 (
 );
 CREATE INDEX ix_simplified_3857_city_code ON simplified_3857 (city_code);
 CREATE INDEX ix_simplified_3857_geom ON simplified_3857 USING GiST(geom);
+```
 
+なんてことはない、普通に``gid``と、属性とマルチポリゴンのジオメトリを持つ、いたって普通のテーブルです。
+
+ここに、トポジオメトリカラムを持つテーブルから、トポジオメトリは簡略化し、それ以外の属性は変更なく、複写します。
+
+```
 INSERT INTO simplified_3857 (city_code, geom)
 SELECT city_code, ST_Simplify(topo,100)
 FROM topogeom_t1_3857 ORDER BY gid;
 ```
+
+``ST_Simplify``の引数は次の通りです。
+
+1. トポジオメトリ
+2. 許容範囲、この値が大きいほど粗くなる
+
 
 
 # 出典
