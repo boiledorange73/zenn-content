@@ -1,21 +1,35 @@
 ---
-title: "トポジオメトリ"
+title: "トポジオメトリで属性を持つ"
 ---
 
 # はじめに
 
-[PostGISを入れたらやってみよう](../../b1de0a18073af70946e0)の[シェープファイルのデータをインポートしてみよう コマンドライン編](../../b1de0a18073af70946e0/viewer/import-cli)で作った``t1``を元にしてみましょう。
+ノード、エッジ、フェイスたちは、属性を持っていません。
 
-# やっていく
+ジオメトリ自体も属性を持っていませんが、テーブルの任意のカラムにジオメトリを指定できるので、結局はジオメトリとそれ以外のカラムとの組み合わせで、ジオメトリに属性を持たせることができます。しかし、トポロジの場合には、個々のノードやエッジやフェイスのデータは``node``、``edge``、``face``の各テーブルに存在します（フェイスに至っては``face``だけでは図形としての情報が不足しています）が、各テーブルはスキーマは固定しています。このため、属性を示すカラムと図形との組み合わせを作ることができません。
 
-まず、PostGISトポロジのエクステンションを追加します。
+これは結構困ったものです。たとえば、市区町村ポリゴンからフェイスを生成しても、フェイス自体には市町村名や自治体コードを持つことができないということになります。
+
+ここで、トポジオメトリというものを使います。トポジオメトリは、トポロジのテーブルとは別に、ジオメトリのように見せるカラムを任意に作ることができます。これにより、ジオメトリと同じように、トポジオメトリと属性の組み合わせが生成でき、トポロジをジオメトリのように扱うことができ、ちょうどトポロジの要素をジオメトリカラムと同じような使い勝手にできるようになります。
+
+ここでは、トポジオメトリ使用して、属性を持つフェイスを生成してみます。
+
+# トポジオメトリを作る
+
+## dbデータベースを使います
+
+[PostGISを入れたらやってみよう](../../b1de0a18073af70946e0)の[シェープファイルのデータをインポートしてみよう コマンドライン編](../../b1de0a18073af70946e0/viewer/import-cli)で作った``t1``をもとにしてみましょう。
+
+以前はPostGISエクステンションしか入っていないはずですので、PostGISトポロジのエクステンションを追加します。
 
 ```
 db=# CREATE EXTENSION postgis_topology;
 CREATE EXTENSION
 ```
 
-続いて、トポロジを追加します。空間参照系を``EPSG:3857``（Webメルカトル）にし、名前を``'topo_t1_3857``としました。
+## トポロジとトポジオメトリの生成
+
+まず、トポロジを生成します。空間参照系を``EPSG:3857``（Webメルカトル）にし、名前を``'topo_t1_3857``としました。
 
 ```
 db=# SELECT topology.CreateTopology('topo_t1_3857', 3857);
@@ -26,7 +40,7 @@ db=# SELECT topology.CreateTopology('topo_t1_3857', 3857);
 SELECT topology.CreateTopology('topo_t1_3857', 3857);
 ```
 
-続いてトポジオメトリを持つテーブルを用意します。
+さらに、トポジオメトリを持つテーブルを用意します。
 
 まず、トポジオメトリ以外のカラムを持つテーブルを作ります。今回は自治体コードを持たせておきます。
 
@@ -100,59 +114,47 @@ INSERT INTO topogeom_t1_3857(city_code, topo)
 
 QGISでレイヤを追加して見ましょう。まず、PostGISレイヤの追加ダイアログを開きます。
 
-![publicスキームレイヤ選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/poweroftopo/01-layerdialog.png)
+![publicスキームレイヤ選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/topogeom/01-layerdialog.png)
 
 publicスキーマに``topogeom_t1_3857.topo``があります。これがトポジオメトリカラムです。なお、トポジオメトリとしても、ジオメトリとしても、候補に挙がっていますが、一方だけでいいです。
 
-![topogeom_t1_3857.topoの表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/poweroftopo/02-topo.png)
+![topogeom_t1_3857.topoの表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/topogeom/02-topo.png)
 
+普通に表示されました。この「普通」というのがポイントで、トポロジのノード、エッジ等の共有状況とは全く関係ないようにジオメトリだけが見えています。
 
-続いて、``topo_t1_3857``スキームを見てみます。
+さらに、地物の属性情報を見てみましょう。
 
-![topo_t1_3857スキームレイヤ選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/poweroftopo/03-layerdialog-topology.png)
+![topogeom_t1_3857.topoと選択地物の属性の表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/topogeom/03-attr.png)
+
+このように、地物ごとの属性情報も問題なく見ることができます。
+
+トポロジには属性の概念が無かったのですが、トポジオメトリの場合には、属性を持たせられることがお分かりいただけたと思います。
+
+# トポロジも見てみる
+
+続いて、トポロジの本体である``topo_t1_3857``スキームを見てみます。
+
+![topo_t1_3857スキームレイヤ選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/topogeom/04-layerdialog-topology.png)
 
 テーブル名``edge_data``を追加した後で``node``を追加します。両方ともカラム名は``geom``です。
 
-![ノードとエッジの表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/poweroftopo/04-node_edge.png)
+![ノードとエッジの表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/topogeom/05-node_edge.png)
 
 こんな感じで、エッジとノードが出現します。ノードは、エッジが交わる/分岐する点にだけ出ているのが分かると思います。
 
 ついでにフェイスも見てみましょう。こちらは、カラム名が``mbr``ということで、長方形になるだろうと想像できます。
 
-![フェイスの表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/poweroftopo/05-face.png)
+![フェイスの表示例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-beginner/topogeom/06-face.png)
 
 長方形でした。
 
+# おわりに
 
-# 簡略化させてみよう
+トポジオメトリを作る方法についてご紹介しました。
 
-まず、受け皿となるテーブルを作ります。
+トポジオメトリを使うと、トポロジのノード、エッジ、フェイスの関係を構築したうえで、属性を持つジオメトリ（ポリゴン）としても見ることができることが確認できたと思います。
 
-```
-CREATE TABLE simplified_3857 (
-  gid SERIAL PRIMARY KEY,
-  city_code TEXT,
-  geom GEOMETRY(MULTIPOLYGON, 3857)
-);
-CREATE INDEX ix_simplified_3857_city_code ON simplified_3857 (city_code);
-CREATE INDEX ix_simplified_3857_geom ON simplified_3857 USING GiST(geom);
-```
-
-なんてことはない、普通に``gid``と、属性とマルチポリゴンのジオメトリを持つ、いたって普通のテーブルです。
-
-ここに、トポジオメトリカラムを持つテーブルから、トポジオメトリは簡略化し、それ以外の属性は変更なく、複写します。
-
-```
-INSERT INTO simplified_3857 (city_code, geom)
-SELECT city_code, ST_Simplify(topo,100)
-FROM topogeom_t1_3857 ORDER BY gid;
-```
-
-``ST_Simplify``の引数は次の通りです。
-
-1. トポジオメトリ
-2. 許容範囲、この値が大きいほど粗くなる
-
+次回には、トポロジの利点を見て頂けると思います。
 
 
 # 出典
