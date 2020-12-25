@@ -75,7 +75,7 @@ db=# SELECT topology.AddTopoGeometryColumn(
 5. トポジオメトリのジオメトリタイプ（``POINT``, ``LINE``, ``POLYGON``, ``COLLECTION``のいずれか）
 
 
-現時点でのトポロジのメタデータを見てみましょう。
+現時点でのトポロジのメタデータを見てみましょう。``topology.layer``にあります。
 
 ```
 db=# SELECT * FROM topology.layer;
