@@ -9,7 +9,7 @@ title: "インストールしてみよう Windows編"
 ここでは、Windows 10上で、PostgreSQLに同梱されているスタックビルダを用いたインストールを紹介します。
 
 
-# PostgreSQLのダウンロードとインストール
+# PostgreSQLのダウンロード
 
 PostgreSQLをインストールしたうえで、同梱されているスタックビルダを使ってPostGISをインストールします。
 
@@ -17,9 +17,48 @@ https://www.postgresql.org/download/windows/ で "Interactive installer by EDB" 
 
 ダウンロードしたexeファイルを走らせて、インストールを行ってください。
 
-# スタックビルダを起動
+# PostgreSQLのインストール
 
-PostgreSQLをインストーラから入れた場合には、スタックビルダを起動するか尋ねられるので、そのまま起動して下さい。
+最初にインストール先を選択します。デフォルト通りでいいと思います。
+
+![インストール先選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-02.png)
+
+次に同梱されているソフトウェアからインストールするものを選択します。全て入れることをお勧めします。最低でも "Stack Builder"は入れて下さい。
+
+![同梱ソフト選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-03.png)
+
+データディレクトリを選択します。これもデフォルト通りでいいと思います。
+
+![データディレクトリ選択ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-04.png)
+
+PostgreSQLインストール時には"postgres"という名前のユーザが作られますが、そのパスワードを設定します。このパスワードは忘れないようにして下さい。
+
+![postgresパスワード設定ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-05.png)
+
+サーバが待機するポートを指定します。これもデフォルト通りでいいと思います。
+
+![サーバ待機ポート指定ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-06.png)
+
+ロケール（言語）を指定します。デフォルトである"[Default locale]"を指定するべきです。
+
+![ロケール指定ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-07.png)
+
+インストール内容を確認するためのダイアログが表示されるので、間違いが無ければ（多分無いですが）"Next"をクリックします。
+
+![インストール内容確認ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-08.png)
+
+もう一回"Next"をクリックしてインストールを開始します。
+
+![インストール開始確認ダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-09.png)
+
+インストールが終了しました。"Stack Builder may be used ..." と出ている箇所のチェックボックスがオンにすると、直後にスタックビルダが実行されるので、そうして下さい。
+
+![インストール終了ウィンドウ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/pg-11.png)
+
+
+# PostGISのインストール
+
+PostgreSQLをインストーラから入れた場合には、上記の通り、インストール終了ウィンドウでチェックボックスをオンにすると、スタックビルダが起動できるので、起動させて下さい。
 
 一旦PostgreSQLのインストールを終えてしまったなら、WindowsメニューのPostgreSQLフォルダ内にあるので、これをクリックして下さい。
 

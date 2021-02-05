@@ -8,7 +8,8 @@ allow_override: true
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - introduction.md
-  - install.md
+  - install-win.md
+  - install-fbsd.md
   - create-table.md
   - import-cli.md
   - import-gui.md
