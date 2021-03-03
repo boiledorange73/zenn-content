@@ -3,7 +3,7 @@ title: "メルカトルとは何かを計算式から見る"
 emoji: "😀"
 type: "tech"
 topics: [GIS]
-published: false
+published: true
 ---
 # はじめに
 
