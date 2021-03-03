@@ -42,7 +42,7 @@ $$
 
 ここで、``λ``, ``φ`` は経度、緯度です。また、x, yはそれぞれ緯線方向（東西）、経線方向（南北）の座標値です。Rは地球の半径です。
 
-正距円筒図法による世界地図は次の通りです。
+正距円筒図法による世界地図（Natural Earthを使用）は次の通りです。
 
 ![正距円筒図法による世界地図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0048/02-plate-carree.png)
 
