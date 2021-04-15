@@ -112,7 +112,7 @@ PostGISのセットアップが始まります。まずはライセンス (GPL)�
 
 ![GDAL_DATAを設定するかどうかを確認するダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/sb-14.png)
 
-``POSTGIS_GDAL_ENABLED_DRIVERS``（有効なGDALドライバ）を設定するか尋ねられます。デフォルトでは全てのドライバは無効になります。「はい」をクリックすると、一部のドライバ（GeoTIFF, PNG, JPEG, XYZ, DTED, USGSDEM, AAIGrid）が有効になります。「いいえ」をクリックすると、デフォルト通り、全てのドライバが無効になります。
+``POSTGIS_GDAL_ENABLED_DRIVERS``（有効なGDALドライバ）を設定するか尋ねられます。デフォルトでは全てのドライバは無効になります。「はい」をクリックすると、一部のドライバ（GeoTIFF, PNG, JPEG, XYZ, DTED, USGSDEM, AAIGrid）が有効になります。「いいえ」をクリックすると、デフォルト通り、全てのドライバが無効になります。GDALドライバを多く導入すると便利になる反面セキュリティホールになる可能性があります。PostGISをウェブサーバに繋げる場合には「いいえ」とした方が良いです。それ以外、特に一人だけで使用するような場合には「はい」としていいと思います。
 
 ![POSTGIS_GDAL_ENABLED_DRIVERSを設定するかどうかを確認するダイアログ](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/b1de0a18073af70946e0/install-sb/sb-15.png)
 
