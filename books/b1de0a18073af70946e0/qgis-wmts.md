@@ -23,7 +23,16 @@ title: "WMTSで地域を絞り込んだうえでPostGISレイヤを表示する"
 
 WMTSはWeb Map Tile Serviceの略で、地図タイル画像のURLや空間参照系の情報のメタデータを定義しています。https://www.ogc.org/standards/wmts から、仕様書をダウンロードできます。
 
-ここでは、https://github.com/gsi-cyberjapan/experimental_wmts を使用します。[地理院地図](https://maps.gsi.go.jp/)の地図タイル画像にWMTSメタデータが得られます。
+ここでは、[地理院地図](https://maps.gsi.go.jp/)の地図タイル画像に関するWMTSメタデータを使用します。
+
+サービスポイントは二種類あり、それぞれ次の通りです。
+
+|名称|URL|
+|----|---|
+|地理院地図(軽量版)|https://gsi-cyberjapan.github.io/experimental_wmts/gsitiles_wmts_light.xml|
+|地理院地図|https://gsi-cyberjapan.github.io/experimental_wmts/gsitiles_wmts.xml|
+
+通常は、軽量版を使うと良いと思います。
 
 # QGIS 3.16 からWMTSを使う方法
 
