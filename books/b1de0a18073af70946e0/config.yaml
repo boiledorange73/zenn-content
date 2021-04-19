@@ -14,5 +14,6 @@ chapters:
   - import-cli.md
   - import-gui.md
   - qgis.md
+  - qgis-wmts.md
   - qgis-wms.md
   - conclusion.md
