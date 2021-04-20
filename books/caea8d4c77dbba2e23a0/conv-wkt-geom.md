@@ -62,7 +62,9 @@ SRIDは空間参照系IDを示す整数値です。ここでは、とりあえ�
 
 ただし、文字列からキャストされるのは、WKTでなくEWKT (Extended WKT)です。
 
-逆にジオメトリをテキストにキャストした場合には、次のようになります。
+## ジオメトリから文字列へキャストするとどうなる
+
+逆にジオメトリをテキストにキャストした場合にはどうなるでしょう。
 
 ```
 db=# SELECT ('POINT Z(1 2 3)'::GEOMETRY)::TEXT;
@@ -72,7 +74,9 @@ db=# SELECT ('POINT Z(1 2 3)'::GEOMETRY)::TEXT;
 (1 行)
 ```
 
-これは、EWKB(Extended Well-Known Binary)のHEX表現です。ここでは詳細は省きますが、WKTに変換されないことだけ知っておいて下さい。
+少なくともWKTに変換されていないことが分かります。
+
+なお、これは後で出てくるEWKB(Extended Well-Known Binary)のHEX表現です。
 
 # おわりに
 
