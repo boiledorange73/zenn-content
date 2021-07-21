@@ -1,5 +1,5 @@
 ---
-title: "Pythonで移流拡散計算を行う"
+title: "Pythonで移流拡散計算を行った結果を表示する"
 emoji: "🍙"
 type: "tech"
 topics: [Python]
