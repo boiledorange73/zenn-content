@@ -7,7 +7,9 @@ published: false
 ---
 # はじめに
 
-Pythonで移流拡散計算の結果をアニメーション表示してみます。最終的なスクリプトも付けました。
+[Pythonで移流拡散計算を行う](0051-py-convdiff)では、Pythonを用いた移流拡散計算を行いました。
+
+今回は、この結果をアニメーション表示してみます。計算と表示を全て持った最終的なスクリプトも付けました。
 
 # 描画準備
 
@@ -125,8 +127,11 @@ def main():
         ani.save('sim_result-exp.gif', writer=w)
 ```
 
-# 出力
+# 計算結果
 
+計算結果は次のようになります。
+
+![移流拡散計算結果](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0052/01-sim_result-exp.gif)
 
 # スクリプト
 
