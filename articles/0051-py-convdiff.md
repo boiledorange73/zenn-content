@@ -3,7 +3,7 @@ title: "Pythonで移流拡散計算を行う"
 emoji: "🍙"
 type: "tech"
 topics: [Python]
-published: false
+published: true
 ---
 # はじめに
 
