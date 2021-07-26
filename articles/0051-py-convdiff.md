@@ -22,18 +22,58 @@ $$
 陽解法の差分方程式は次のようになります。
 
 $$
-\frac{\phi'_x-\phi_x}{\Delta t} = -u\frac{\partial \phi}{\partial x} + a\frac{\partial^2\phi}{\partial x^2}
+\frac{\phi'_x-\phi_x}{\Delta t} = -u\frac{\phi_x-\phi_{x-1}}{\Delta x} + a\frac{\phi_{x+1}-2\phi_x^2+\phi_{x-1}}{\Delta x^2}
 $$
 
 ``data_old``から``data_new``に更新する場合、次のようになります。
 
 ``` python
-                dydx = 0.5 * (data_old[ix+1]-data_old[ix-1]) / dx
+                dydx = (data_old[ix]-data_old[ix-1]) / dx
                 dy2dx2 = (data_old[ix+1]-2.0*data_old[ix]+data_old[ix-1]) / dx2
                 data_new[ix] = data_old[ix] + dt * (- u * dydx + a * dy2dx2)
 ```
 
 ここで、``u``, ``a`` は微分方程式の流速および拡散係数で、``dx``, ``dt``は、差分化した際の幅刻みと時間刻みで、``dx2``は、事前に計算した``dx*dx``です。
+
+## 上流差分と中心差分
+
+差分方程式で、移流項を次のようにしていました。
+
+$$
+-u\frac{\phi_x-\phi_{x-1}}{\Delta x}
+$$
+
+この式は、``x``とその上流の``x-1``の値を使用するため、上流差分と呼ばれています。
+
+ただし、``u``が正なら上記の式になりますが、``u``が負だと、上流が``x``から見て上流は``x+1``となるので、次のようになります。
+
+$$
+-u\frac{\phi_{x+1}-\phi_{x}}{\Delta x}
+$$
+
+まとめると、次のように場合分けを含む式になります。
+
+$$
+\left\{
+\begin{array}{ll}
+-u\frac{\phi_x-\phi_{x-1}}{\Delta x} & (u>=0) \\
+-u\frac{\phi_{x+1}-\phi_{x1}}{\Delta x} & (u<0)
+\end{array}
+\right.
+$$
+
+この他に、次の式のようにすることもあります。
+
+$$
+-u\frac{\frac{\phi_{x+1}-\phi_{x}}{\Delta x}+\frac{\phi_{x}-\phi_{x-1}}{\Delta x}}{2} \\
+= -u\frac{\phi_{x+1}-\phi_{x-1}}{2\Delta x}
+$$
+
+この式は、上流差分と下流差分の平均値を取っているだけです。この式は中心差分と呼ばれています。
+
+上流差分と中心差分を比較すると、上流差分の方が安定します。本稿の計算でも、拡散係数を``0``にすると、中心差分では発散しますが、上流差分ではそのようなことは発生しません。
+
+対して、中心差分では、発散しやすい場合も出てきますが、場合分けが不要になります。
 
 # 差分計算本体を除いた計算クラス
 
