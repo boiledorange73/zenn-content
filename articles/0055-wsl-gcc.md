@@ -50,19 +50,26 @@ Temporary failure resolving 'archive.ubuntu.com'
 
 https://qiita.com/ryosukeYamazaki/items/c04ec3ff78aac6eb8d26
 
-
+(2022年10月4日追加) まず、/etc/resolv.conf が /run/resolvconf/resolv.conf へのシンボリックリンクなので、これをカットします。
 
 ```
-# DNSアドレスを調べてうえで
-sudo sh -c "echo 'nameserver (DNSアドレス)' > /etc/resolv.conf"
+sudo rm /etc/resolv.conf
+```
 
-# こちらはIPアドレス等に関係なし
+そのうえで /etc/resolv.conf に置き換えます。、**(DNSアドレス)は適切なアドレスに置き換えて下さい**。
+
+```
+sudo sh -c "echo 'nameserver (DNSアドレス)' > /etc/resolv.conf"
+```
+
+今後 resolv.conf を自動で書き換えないようにするために、次のようにします。
+
+```
 sudo sh -c "echo '[network]\ngenerateResolvConf = false' > /etc/wsl.conf"
 ```
 
-の二つを実行します。
+なお、'\n'が付いているのに "echo -e" としていないのですが改行できてしまっています。これは、どうも引数を "" で括っているために改行コードに置換されているみたいです。
 
-一つ目で'\n'が付いているのに "echo -e" としていないのは、どうも引数を "" で括っているために改行コードに置換されているみたいです。
 
 ## gcc, gdb を入れる
 
