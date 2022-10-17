@@ -65,7 +65,7 @@ Ubuntuにも入れてあげる必要があります。「C/C++」のすぐ下に
 
 </dl>
 
-## .vscode/launth.json ファイルの作成
+## .vscode/launch.json ファイルの作成
 
 プロジェクトフォルダを開いたら、``.vscode/launch.json``ファイルを作成します。
 
