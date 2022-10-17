@@ -50,7 +50,7 @@ Ubuntuにも入れてあげる必要があります。「C/C++」のすぐ下に
 
 ## 構成
 
-コマンドパレット (Ctrl+Shift+"p")→「C/C++: Configurations Edit」で設定します。
+コマンドパレット (Ctrl+Shift+"p")→「C/C++: Edit Configurations」で設定します。
 
 |名称|値|
 |------|-----|
@@ -122,6 +122,30 @@ Ubuntuにも入れてあげる必要があります。「C/C++」のすぐ下に
         }
     ],
     "version": 4
+}
+```
+
+## .vscode/tasks.json ファイルの作成
+
+```
+{
+    "tasks": [
+        {
+            "label": "My Make for WSL",
+            // "type": "shell",
+            "type": "cppbuild",
+            "command": "/usr/bin/make",
+            "args": [],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                   "PATH": "/usr/bin"
+                }
+            }
+        }
+    ],
+    "version": "2.0.0"
 }
 ```
 
