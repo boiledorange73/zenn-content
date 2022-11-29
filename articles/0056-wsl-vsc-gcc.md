@@ -1,5 +1,5 @@
 ---
-title: "VSCodeでWSLにアクセスする"
+title: "VSCode+WSLで開発してみる"
 emoji: "🖥"
 type: "tech"
 topics: [C, WSL, Ubuntu]
