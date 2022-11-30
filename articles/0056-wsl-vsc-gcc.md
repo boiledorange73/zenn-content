@@ -1,5 +1,5 @@
 ---
-title: "VSCode+WSLで開発してみる"
+title: "VSCode+WSL+Ubuntu+gcc+gdb+gmakeで開発してみる"
 emoji: "🖥"
 type: "tech"
 topics: [C, WSL, Ubuntu]
@@ -10,7 +10,6 @@ published: true
 
 Windows上でVisual Studio Code (VSCode)をインストールして、gccを使った開発を行おうとしたお話です。
 
-
 ## Visual Studio Code を使う
 
 VSCodeは単純なテキストエディタでなく、プラグインを入れるとデバッガとかも使えるようになります。
@@ -19,7 +18,10 @@ VSCodeは単純なテキストエディタでなく、プラグインを入れ�
 
 VSCode+Cygwinで使おうとしたのですが、ちょっとうまくいかなかったので、WSL Ubuntuを使うことにしました。
 
-## gcc, gdb, gmake を入れておこう
+## WSL+Ubuntuを導入して gcc, gdb, make を入れておこう
+
+まず、[WSL上でCコンパイラを動かすまで](0055-wsl-gcc) を参考に WSL+Ubuntuを導入して下さい。
+また、gcc, gdb, make も入れて下さい。
 
 ```bash
 sudo apt install make gdb gcc
