@@ -3,7 +3,7 @@ title: "Cloud Optimized GeoTIFFを置いてみました"
 emoji: "😀"
 type: "tech"
 topics: [GIS, GDAL]
-published: false
+published: true
 ---
 
 # はじめに
