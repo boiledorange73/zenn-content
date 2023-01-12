@@ -6,9 +6,15 @@ topics: [GIS, MapServer, GDAL, PostGIS]
 published: true
 ---
 
-# はじめに
+# とにかく言いたいこと
 
-[基盤地図情報DEM配信サービス](https://boiledorange73.sakura.ne.jp/dem.html)を公開しました。基盤地図情報数値標高モデルの10mメッシュの任意範囲を取り出すものです。
+**[基盤地図情報DEM配信サービス](https://boiledorange73.sakura.ne.jp/dem.html)を公開しました！**
+
+# あらためて、はじめに
+
+[基盤地図情報DEM配信サービス](https://boiledorange73.sakura.ne.jp/dem.html)を公開しました。
+
+基盤地図情報数値標高モデルの10mメッシュの任意範囲を取り出すものです。
 
 本サービスでは、WCS (Web Coverage Service)とCOG (Cloud Optimized GeoTIFF)で出していますが、今回はCOG限定。
 
@@ -113,7 +119,7 @@ gdal_translate ^
 
 ## とりあえず見てみよう
 
-[Cloud Optimized GeoTIFFを置いてみました](0057-using-cog)を参照して、QGISで開いてみて下さい。
+[Cloud Optimized GeoTIFFを置いてみました](0057-using-cog)を参照して、QGISで開いてみて下さい。COGのURLは[基盤地図情報DEM配信サービス](https://boiledorange73.sakura.ne.jp/dem.html)に書いていますのでご覧下さい。
 
 ![初期状態](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0059/01-qgis-initial.png)
 
