@@ -19,7 +19,7 @@ gdalは、フォーマットの相互変換やリサンプリング、マージ�
 
 「切り取りアプリ」を使って、地図アプリケーション上から取得します。
 
-本章で使用するデータは http://aginfo.cgk.affrc.go.jp/rstprv/rstext.html.ja?lon=133.38388888889068&lat=34.385666666666815&zoom=12&layers=BTT&clon=133.3838888888889&clat=34.385666666666665&anchor=cc&iw=600&ih=400&it=image/tiff から得ています。
+本章で使用するデータは http://boiledorange73.sakura.ne.jp/jpdemget/index.html?lon=133.384&lat=34.386&zoom=12&plon=133.384&plat=34.386&cols=600&rows=400 から得ています。
 
 # GeoTIFFデータの確認
 
