@@ -15,11 +15,11 @@ gdalは、フォーマットの相互変換やリサンプリング、マージ�
 
 ## GeoTIFFデータの取得
 
-[ラスタデータ配信サービス](http://aginfo.cgk.affrc.go.jp/rstprv/)で、任意の範囲のDEM (デジタル標高モデル)データをGeoTIFF等で得ることができます。
+https://boiledorange73.sakura.ne.jp/ で、任意の範囲のDEM (デジタル標高モデル)データをGeoTIFF等で得ることができます。
 
 「切り取りアプリ」を使って、地図アプリケーション上から取得します。
 
-本章で使用するデータは http://boiledorange73.sakura.ne.jp/jpdemget/index.html?lon=133.384&lat=34.386&zoom=12&plon=133.384&plat=34.386&cols=600&rows=400 から得ています。
+本章で使用するデータは https://boiledorange73.sakura.ne.jp/jpdemget/index.html?lon=133.384&lat=34.386&zoom=12&plon=133.384&plat=34.386&cols=600&rows=400 から得ています。
 
 # GeoTIFFデータの確認
 
