@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-[基盤地図情報DEM取得アプリの使い方](https://boiledorange73.sakura.ne.jp/jpdemget/)は、10mメッシュかつ地形図から取得した ("10B"と言われます)ものですが、任意の標高データを取得できます。
+[基盤地図情報DEM取得アプリ](https://boiledorange73.sakura.ne.jp/jpdemget/)は、10mメッシュかつ地形図から取得した ("10B"と言われます)ものですが、任意の標高データを取得できます。
 
 ここでは使用方法を示したいと思います。
 
