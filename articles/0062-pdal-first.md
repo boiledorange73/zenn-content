@@ -247,7 +247,7 @@ https://viewer.copc.io/?copc=https://boiledorange73.sakura.ne.jp/06QC293.laz
 
 いかがだったでしょうか？
 
-自分の知ってるところを見ると、本当に気分が上がりますね。これまで点群データをいじらなかったのは、それがひとつ。
+自分の知ってるところを見ると、本当に気分が上がりますね。これまで点群データをいじらなかったに急にやりだしたのは、データが身近だったからです。
 
 あとビジュアライゼーションができにくかったので、何度も出しますけど https://viewer.copc.io/ のアプリと、 https://github.com/shi-works/copc-format-wakayama-point-cloud-data の記事がありがたかったです。
 
