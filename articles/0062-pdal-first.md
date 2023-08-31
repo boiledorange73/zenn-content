@@ -216,9 +216,12 @@ https://wakayamaken.geocloud.jp/mp/22 に最初にアクセスすると、次の
 Header set Access-Control-Allow-Origin: "*"
 ```
 
-そのうえで、lazファイルのURLを指定して、見てみます。
 
-https://viewer.copc.io/?copc=https://boiledorange73.sakura.ne.jp/06QC293.laz
+## COPCビューアにlazファイルのURLを教える
+
+そのうえで、lazファイルのURLを指定してみます。
+
+[https://viewer.copc.io/?copc=https://boiledorange73.sakura.ne.jp/06QC293.laz](https://viewer.copc.io/?copc=https://boiledorange73.sakura.ne.jp/06QC293.laz)
 
 ## 空から某所を見てみよう
 
