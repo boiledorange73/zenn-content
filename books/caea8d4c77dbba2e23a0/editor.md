@@ -36,7 +36,7 @@ db=# SELECT ST_AsText(
 
 ## ST_Intersection
 
-![ST_Intersectionの結果](!https://storage.googleapis.com/zenn-user-upload/xyln3ubv74n94cu6sg3n37t3lxxl)
+![ST_Intersectionの結果](https://storage.googleapis.com/zenn-user-upload/xyln3ubv74n94cu6sg3n37t3lxxl)
 
 ```psql
 db=# SELECT ST_AsText(
