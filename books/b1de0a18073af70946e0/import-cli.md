@@ -9,8 +9,6 @@ PostGISもシェープファイルのインポートとエクスポートを行�
 
 ここでは、shp2pgsqlを使ってシェープファイルのデータをPostGISにインポートする方法をご紹介します。
 
-
-
 # シェープファイルについて
 
 シェープファイルはジオメトリデータのみを納める、バイナリのファイル形式で、シェープファイルのPolygonはOGC Simple Feature Accessで言うところのMultiPolygonに相当します。OGC SFAで言うところのPolygonはシェープファイルにはありません。同じくOGC SFAで言うところのMultiLinestringはありますがLinestringはありません。
@@ -93,8 +91,18 @@ CREATE TABLE "t1" (
 次のコマンドでOKです。
 
 ```csh
-% psql db -f N03-14_34_140401.sql
+% psql -d db -f N03-14_34_140401.sql
 ```
+
+## Windowsでインポートする場合の注意
+
+Windowsのコマンドプロンプトや、それを元にしている OSGeo4W Shell などでは、CP932をデフォルトの文字コードと認識しているため、UTF8のファイルを読ませようとすると、非ASCIIがあると、エラーが発生します。
+
+回避するには、環境変数``PGCLIENTENCODING``を設定します。
+
+```batch
+> set PGCLIENTENCODING=UTF8
+> psql -d db -f N03-14_34_140401.sql
 
 # テーブル作成とデータコピーを分離する
 
@@ -156,7 +164,7 @@ COMMIT;
 インポートは、tables.sqlを最初に実行させ、その後はデータコピー用ファイルを順次実行させます。
 
 ```csh
-% psql db -f tables.sql
+% psql -d db -f tables.sql
 SET
 SET
 BEGIN
@@ -171,7 +179,7 @@ ALTER TABLE
 
 CREATE INDEX
 COMMIT
-% psql db -f N03-14_34_140401.sql 
+% psql -d db -f N03-14_34_140401.sql 
 SET
 SET
 BEGIN

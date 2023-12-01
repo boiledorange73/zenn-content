@@ -13,6 +13,7 @@ chapters:
   - create-table.md
   - import-cli.md
   - import-gui.md
+  - import-ogr2ogr.md
   - qgis.md
   - qgis-wmts.md
   - qgis-wms.md
