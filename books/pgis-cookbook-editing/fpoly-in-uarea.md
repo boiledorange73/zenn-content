@@ -20,7 +20,7 @@ title: "市街化区域内にある農地"
 
 # PGDUMPデータ作成とインポート
 
-[PostGISを入れるところからやってみよう](../../../b1de0a18073af70946e0)にある[各種データを ogr2ogr でインポートしてみよう](../../../b1de0a18073af70946e0/viewer/import-ogr2ogr)を参照して下さい。
+[PostGISを入れるところからやってみよう](../../b1de0a18073af70946e0)にある[各種データを ogr2ogr でインポートしてみよう](../../b1de0a18073af70946e0/viewer/import-ogr2ogr)を参照して下さい。
 
 ## 筆ポリゴン
 
@@ -128,7 +128,7 @@ SRID は "Spatial Reference System Idenfifier" の略（"System"が抜けてる�
 
 エラーをなくしたいなら、自分で座標参照系を変更する必要があります。
 
-なお、日本国内でよく使われる座標参照系については、[PostGIS入門](../../../caea8d4c77dbba2e23a0)にある[空間参照系の概要](../../../caea8d4c77dbba2e23a0/viewer/srs)を参照して下さい。
+なお、日本国内でよく使われる座標参照系については、[PostGIS入門](../../caea8d4c77dbba2e23a0)にある[空間参照系の概要](../../caea8d4c77dbba2e23a0/viewer/srs)を参照して下さい。
 
 
 ## 座標参照系を確認する
@@ -223,7 +223,7 @@ CREATE INDEX ON fude_containedby_planing USING GiST(geom);
 
 面積を得る関数は ``ST_Area()``なのですが、ジオメトリ型の場合には、地理座標系 (経度緯度) の面積が計算できるっぽいのですが、単位が「度の2乗」という、謎な面積が得られます。
 
-でなくて、まともな面積を測りたいですね。その場合は、ジオグラフィ型を使うといいです。[PostGIS入門](../../../caea8d4c77dbba2e23a0)の[ジオグラフィ型というものがある](../../../caea8d4c77dbba2e23a0/viewer/geog)を参照して下さい。
+でなくて、まともな面積を測りたいですね。その場合は、ジオグラフィ型を使うといいです。[PostGIS入門](../../caea8d4c77dbba2e23a0)の[ジオグラフィ型というものがある](../../caea8d4c77dbba2e23a0/viewer/geog)を参照して下さい。
 
 ジオグラフィ型にキャストして``ST_Area()``に与えるだけで、平方メートル単位の面積計算ができますし、キャスト自体は中身を変えずに型だけ変えているので、キャストについては大して計算コストがかからないので、結構お気軽に使えます。
 
@@ -265,14 +265,14 @@ CREATE INDEX ON fude_intersects_planing USING GiST(geom);
 
 はみ出した農地もカウントに入ってしまいますね。この場合は、おそらく``ST_Contains()``の方が適切でないかなと思います。適切なテスト関数は求めたいものによって異なりますので、その時その時に検討して下さい。
 
-テスト関数の詳細については、[PostGIS入門](../../../caea8d4c77dbba2e23a0)にある[PostGISの空間関係をテストする関数たち](../../../caea8d4c77dbba2e23a0/viewer/testing)を参照して下さい。
+テスト関数の詳細については、[PostGIS入門](../../caea8d4c77dbba2e23a0)にある[PostGISの空間関係をテストする関数たち](../../caea8d4c77dbba2e23a0/viewer/testing)を参照して下さい。
 
 # 参照
 
-* [PostGISを入れるところからやってみよう](../../../b1de0a18073af70946e0) / [各種データを ogr2ogr でインポートしてみよう](../../../b1de0a18073af70946e0/viewer/import-ogr2ogr)
-* [PostGIS入門](../../../caea8d4c77dbba2e23a0) / [空間参照系の概要](../../../caea8d4c77dbba2e23a0/viewer/srs)
-* [PostGIS入門](../../../caea8d4c77dbba2e23a0) / [ジオグラフィ型というものがある](../../../caea8d4c77dbba2e23a0/viewer/geog)
-* [PostGIS入門](../../../caea8d4c77dbba2e23a0) / [PostGISの空間関係をテストする関数たち](../../../caea8d4c77dbba2e23a0/viewer/testing)
+* [PostGISを入れるところからやってみよう](../../b1de0a18073af70946e0) / [各種データを ogr2ogr でインポートしてみよう](../../b1de0a18073af70946e0/viewer/import-ogr2ogr)
+* [PostGIS入門](../../caea8d4c77dbba2e23a0) / [空間参照系の概要](../../caea8d4c77dbba2e23a0/viewer/srs)
+* [PostGIS入門](../../caea8d4c77dbba2e23a0) / [ジオグラフィ型というものがある](../../caea8d4c77dbba2e23a0/viewer/geog)
+* [PostGIS入門](../../caea8d4c77dbba2e23a0) / [PostGISの空間関係をテストする関数たち](../../caea8d4c77dbba2e23a0/viewer/testing)
 
 # 出典
 
