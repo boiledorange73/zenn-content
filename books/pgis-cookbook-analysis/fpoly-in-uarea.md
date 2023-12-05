@@ -59,19 +59,19 @@ ogr2ogr -f PGDUMP ^
 
 まず、``planing``テーブル (都市計画区域)を見てみましょう。
 
-![QGISでplaningの地図を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_01-planing.png)
+![QGISでplaningの地図を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_01-planing.png)
 
 いい眺めですね。
 
 次に、``fude``テーブル (筆ポリゴン)を表示して見ましょう。
 
-![QGISでfudeの地図を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_02-fude.png)
+![QGISでfudeの地図を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_02-fude.png)
 
 いい眺めですね。
 
 最後に、重ね合わせてみましょう。
 
-![QGISでplaningとfudeの地図を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_03-planing_fude.png)
+![QGISでplaningとfudeの地図を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_03-planing_fude.png)
 
 素晴らしい眺めですね。
 
@@ -212,11 +212,11 @@ CREATE INDEX ON fude_containedby_planing USING GiST(geom);
 
 結果をQGISで見てみましょう。
 
-![QGISで市街化区域に含まれる農地を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_04-fude_containedby_planing.png)
+![QGISで市街化区域に含まれる農地を表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_04-fude_containedby_planing.png)
 
 もうちょっとズームして見ましょう。
 
-![QGISで市街化区域に含まれる農地の一部をズームして表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_05-fude_containedby_planing_zoom.png)
+![QGISで市街化区域に含まれる農地の一部をズームして表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_05-fude_containedby_planing_zoom.png)
 
 
 ## 面積の合計を見る
@@ -257,11 +257,11 @@ CREATE INDEX ON fude_intersects_planing USING GiST(geom);
 
 ``ST_Contains()``を使った場合はこう見えます。
 
-![QGISで市街化区域に含まれる農地の一部をズームして表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_05-fude_containedby_planing_zoom.png)
+![QGISで市街化区域に含まれる農地の一部をズームして表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_05-fude_containedby_planing_zoom.png)
 
 ``ST_Intersects()``を使った場合はこう見えます。
 
-![QGISで市街化区域とインタセクトする農地の一部をズームして表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/fpoly-in-uarea_06-fude_intersects_planing_zoom.png)
+![QGISで市街化区域とインタセクトする農地の一部をズームして表示しているところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/fpoly-in-uarea_06-fude_intersects_planing_zoom.png)
 
 はみ出した農地もカウントに入ってしまいますね。この場合は、おそらく``ST_Contains()``の方が適切でないかなと思います。適切なテスト関数は求めたいものによって異なりますので、その時その時に検討して下さい。
 

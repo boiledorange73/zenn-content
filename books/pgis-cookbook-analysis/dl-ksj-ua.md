@@ -12,11 +12,11 @@ title: "国土数値情報のダウンロード"
 
 まずトップページに行きます。
 
-![国土数値情報 トップページ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_01-ksjtop.png)
+![国土数値情報 トップページ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_01-ksjtop.png)
 
 下の方にスクロールさせたり、ブラウザのページ内検索機能を使って見つけてください。
 
-![都市地域 (ポリゴン) のありか](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_03-select.png)
+![都市地域 (ポリゴン) のありか](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_03-select.png)
 
 そこをクリックします。
 
@@ -24,17 +24,17 @@ title: "国土数値情報のダウンロード"
 
 必要なファイルを見つけます。ここでは広島県の最新のデータを求めています。
 
-![都市地域 (ポリゴン) の広島県の最新データのありか](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_04-hirosima.png)
+![都市地域 (ポリゴン) の広島県の最新データのありか](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_04-hirosima.png)
 
 アンケートが表示されるので、**できるだけご協力を**お願いします。
 
-![アンケート画面](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_05-enq.png)
+![アンケート画面](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_05-enq.png)
 
 アンケートを入れるかスキップすると、ダウンロードが始まります。
 
-![ダウンロード確認](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_06-dl.png)
+![ダウンロード確認](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_06-dl.png)
 
-![ダウンロード終了](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_07-dldone.png)
+![ダウンロード終了](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_07-dldone.png)
 
 
 # QGIS で見てみる
@@ -43,19 +43,19 @@ QGISで見てみましょう。
 
 メニューから「レイヤ (L)」→「レイヤを追加」→「ベクタレイヤの追加 Ctrl+Shift+V」を選択します。
 
-![ベクタレイヤを追加するためのメニューのパス](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-fpoly_06-qgis-add-menuall.png)
+![ベクタレイヤを追加するためのメニューのパス](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-fpoly_06-qgis-add-menuall.png)
 
 「データリソースマネージャ|ベクタ」が出ます。サイドのタブでラスタなど好きな形式も選べますが、とりあえず「ベクタ」のままいきましょう。
 
-![データリソースマネージャ ダイアログ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-fpoly_07-qgis-add-dialog-initial.png)
+![データリソースマネージャ ダイアログ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-fpoly_07-qgis-add-dialog-initial.png)
 
 「ソース型」は「ファイル (i)」を選択したまま、``.shp``ファイルを選択します。ファイルを指定した後は、「追加」ボタンをクリックすると、ロードを開始します。
 
-![シェープファイルを選択した直後](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_08-qgis-add-dialog-selected.png)
+![シェープファイルを選択した直後](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_08-qgis-add-dialog-selected.png)
 
 都市計画区域が表示されます。
 
-![都市計画区域を表示したところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-editing/dl-ksj_09-qgis-firstview.png)
+![都市計画区域を表示したところ](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook-analysis/dl-ksj_09-qgis-firstview.png)
 
 # おわりに
 

@@ -1,5 +1,5 @@
-title: "PostGIS料理帳 編集編"
-summary: "PostGISを使って実際に存在するデータを編集する事例を紹介しています。"
+title: "PostGIS料理帳 分析編"
+summary: "PostGISを使って実際に存在するデータを抽出、分析する事例を紹介しています。"
 topics: [PostGIS]
 published: true
 published_at: 2023-12-7
