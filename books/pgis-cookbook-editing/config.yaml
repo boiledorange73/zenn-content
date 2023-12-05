@@ -1,0 +1,13 @@
+title: "PostGIS料理帳 編集編"
+summary: "PostGISを使って実際に存在するデータを編集する事例を紹介しています。"
+topics: [PostGIS]
+published: false
+price: 0
+# 一時的に設定
+allow_override: true
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
+  - fpoly-in-uarea
+  - dl-fpoly
+  - dl-ksj-ua
