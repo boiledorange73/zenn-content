@@ -2,7 +2,6 @@ title: "PostGIS料理帳"
 summary: "PostGISを使って実際に存在するデータを編集したり分析したりするトピック的事例を紹介しています。"
 topics: [PostGIS]
 published: true
-published_at: 2023-12-7
 price: 0
 # 一時的に設定
 allow_override: true
