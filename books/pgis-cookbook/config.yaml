@@ -8,6 +8,7 @@ allow_override: true
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - introduction
+  - ksj-rail
   - fpoly-in-uarea
   - dl-fpoly
   - dl-ksj-ua
