@@ -1,10 +1,19 @@
 ---
-title: " MySQLと地理院サイトで2点間の距離が違う理由"
+title: "参考: MySQLと地理院サイトで2点間の距離が違う理由"
 emoji: "😀"
 type: "tech"
 topics: [MySQL, GIS]
 published: true
 ---
+
+# おことわり
+
+ご指摘を受けて発覚したのですが、少なくとも現時点 (2023年12月) では、国土地理院さんサイトにある「経緯度を用いた2地点間の測地線長、方位角を求める計算」( https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/algorithm/bl2st/bl2st.htm ) に掲示されている数式が大きく異なっています。Bowring (1996) の式を使っています。
+
+以前は多分 Vincenty (1975) の式を使っていたはずです。仮に以前から Bowring の式を使っていたのでしたら、何かの幻影を見ていたことになるレベルで見間違えていたということになります。
+
+このため、本記事の内容は信用せず、参考程度にとらえておいて下さい。
+
 # はじめに
 
 [MySQL8.0のGIS距離計算を検証してみた](https://dupont.hatenablog.jp/entry/rdbms_gis_advent_calendar20181204) で、MySQLの``ST_Distance()``で計算した距離と https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/bl2stf.html で計算した距離とが合わない、という報告がありました。
