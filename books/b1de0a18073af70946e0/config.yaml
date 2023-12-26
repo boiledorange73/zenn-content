@@ -7,13 +7,13 @@ price: 0
 allow_override: true
 # 本に含めるチャプターを順番に並べましょう
 chapters:
-  - introduction.md
-  - install-win.md
-  - install-fbsd.md
-  - create-table.md
-  - import-cli.md
-  - import-gui.md
-  - import-ogr2ogr.md
-  - qgis.md
-  - qgis-wmts.md
-  - conclusion.md
+  - introduction
+  - install-win
+  - install-fbsd
+  - create-table
+  - import-cli
+  - import-gui
+  - import-ogr2ogr
+  - qgis
+  - qgis-wmts
+  - conclusion

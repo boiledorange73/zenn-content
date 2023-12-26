@@ -7,18 +7,18 @@ price: 0
 allow_override: true
 # 本に含めるチャプターを順番に並べましょう
 chapters:
-  - introduction.md
-  - geomtypes.md
-  - srs.md
-  - testing.md
-  - editor.md
-  - geog.md
-  - geogfns.md
-  - dump.md
-  - collect.md
-  - delcrack.md
-  - within.md
-  - conv-wkt-geom.md
-  - conv-ewkt-geom.md
-  - inpect-ewkt.md
-  - conclusion.md
+  - introduction
+  - geomtypes
+  - srs
+  - testing
+  - editor
+  - geog
+  - geogfns
+  - dump
+  - collect
+  - delcrack
+  - within
+  - conv-wkt-geom
+  - conv-ewkt-geom
+  - inpect-ewkt
+  - conclusion
