@@ -68,7 +68,7 @@ sudo sh -c "echo 'nameserver (DNSアドレス)' > /etc/resolv.conf"
 sudo sh -c "echo '[network]\ngenerateResolvConf = false' > /etc/wsl.conf"
 ```
 
-なお、'\n'が付いているのに "echo -e" としていないのですが改行できてしまっています。これは、どうも引数を "" で括っているために改行コードに置換されているみたいです。
+なお、'\n'が付いているのに "echo -e" としていないのですが改行できてしまっています。これは、~~どうも引数を "" で括っているために改行コードに置換されているみたいです~~ dash というシェルの組み込み echo の機能によるそうです (@otnさんのご指摘による)。
 
 
 ## gcc, gdb を入れる
