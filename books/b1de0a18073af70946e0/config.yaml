@@ -1,4 +1,4 @@
-title: "PostGISを入れるところからやってみよう"
+title: "PostGISをはじめてみよう"
 summary: "ESRIシェープファイル形式のデータをPostGISに格納してQGISで表示するまでの手順を紹介しています。"
 topics: [PostGIS]
 published: true
