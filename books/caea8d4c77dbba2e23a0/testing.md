@@ -42,15 +42,15 @@ ST_CoverdBy(A, B) は "A is coverd by B" つまり「AはBに覆われている�
 
 面、線の境界（赤色）と内部（青色）を以下に示します。
 
-![面の境界](https://storage.googleapis.com/zenn-user-upload/zsk400jlwayhsn4x9yxoubgl7ra9)
+![面の境界](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/1.png)
 
-![線の境界](https://storage.googleapis.com/zenn-user-upload/dyevncer93e5ovapblcrjuykoqyj)
+![線の境界](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/2.png)
 
 # 「含む」系関数
 
 ## ST_ContainsとST_Covers
 
-![ST_ContainsとST_Coversのテスト結果](https://storage.googleapis.com/zenn-user-upload/mapcceuksl810vhmchp2ysb0s0ur)
+![ST_ContainsとST_Coversのテスト結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/3.png)
 
 ST_ContainsとST_Coversは、いずれも、AがBを含む、というかんじの意味で、概ね同じ真偽値を返します。
 
@@ -78,7 +78,7 @@ db=# SELECT ST_Covers('POLYGON((0 0, 1 0, 1 1, 0 0))'::GEOMETRY,'LINESTRING(0 0,
 
 ## ST_WithInとST_CoveredBy
 
-![ST_WithInとST_CoveredByのテスト結果](https://storage.googleapis.com/zenn-user-upload/x7gslpvqukwjegeczdcfnl14ipca)
+![ST_WithInとST_CoveredByのテスト結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/4.png)
 
 ST_WithInはST_Containsと引数を入れ替えたものです。ST_CoveredByもST_Coversと引数を入れ替えたものです。
 それぞれ、単に引数の順序を変えただけです。
@@ -98,7 +98,7 @@ ST_Intersects, ST_Crosses, ST_Overlaps, ST_Touches があります。あと、NO
 
 ## ST_Intersects
 
-![ST_Intersectsのテスト結果](https://storage.googleapis.com/zenn-user-upload/c6osjkdzbegkta2v6hmqxza7fpm2)
+![ST_Intersectsのテスト結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/5.png)
 
 ST_Intersectsは、AとBに共通部分が存在する場合にTRUEを返します。それ以上の条件はありません。
 
@@ -118,11 +118,11 @@ ST_Intersectよりも条件が厳しくなっています。
 
 上記の例を次に示します。青い丸が複数あるのは「複数の点」でひとつのジオメトリを形成していることに注意して下さい。
 
-![ポリゴンとマルチポイントのクロス](https://storage.googleapis.com/zenn-user-upload/vkluyml62vm5smtoky8au5tbqxgq)
+![ポリゴンとマルチポイントのクロス](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/6.png)
 
-![ラインストリングとラインストリングのクロス](https://storage.googleapis.com/zenn-user-upload/nltlu8dmv7bl5uu7000nrb8961bl)
+![ラインストリングとラインストリングのクロス](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/7.png)
 
-![ポリゴンとラインストリングのクロス](https://storage.googleapis.com/zenn-user-upload/s3nyhagn6y14o9cxl3r4r4sw8qjm)
+![ポリゴンとラインストリングのクロス](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/8.png)
 
 また、次の点にも注意が必要です。
 
@@ -132,7 +132,7 @@ ST_Intersectよりも条件が厳しくなっています。
 
 ## ST_Overlaps
 
-![ST_Overlapsのテスト結果](https://storage.googleapis.com/zenn-user-upload/bg2irjay5l5hzsvrcx1uffyipps4)
+![ST_Overlapsのテスト結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/9.png)
 
 AとBに共通部分が存在し、AとBと共通部分は同じ次元で、かつAまたはBが、もう一方に包含さていない場合にTRUEを返します。
 
@@ -140,15 +140,15 @@ AとBに共通部分が存在し、AとBと共通部分は同じ次元で、か�
 
 共通部分が無い場合にTRUEを返します。
 
-![ST_Disjointのテスト結果](https://storage.googleapis.com/zenn-user-upload/a0jo8c07s59qdrgx5bv211xqfdwi)
+![ST_Disjointのテスト結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/10.png)
 
 # 「接触」系関数
 
 ## ST_Touches
 
-![ST_Touchesのテスト結果](https://storage.googleapis.com/zenn-user-upload/xfy0chqdsech8l4pd26x963eicei)
+![ST_Touchesのテスト結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/11.png)
 
-![ST_Touchesのテスト結果 その2](https://storage.googleapis.com/zenn-user-upload/jeti4oobvs34w73uc1j7to0gy53k)
+![ST_Touchesのテスト結果 その2](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/testing/12.png)
 
 AとBに共通部分があり、共通部分はAの境界上とBの境界上にしかない場合にTRUEを返します。
 

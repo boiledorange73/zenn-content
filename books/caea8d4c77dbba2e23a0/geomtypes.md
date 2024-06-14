@@ -79,7 +79,7 @@ polygon( (x11 y11, x12 y12, ..., x11 y11), (x21 y21, x22 y22, ..., x21 y21), ...
 
 次に示すポリゴンは、外側のリング一つと内側のリング二つからなっています。
 
-![内側に二つの穴を持つポリゴン](https://storage.googleapis.com/zenn-user-upload/bnp62uytoeurjjif43kiflu8it3u)
+![内側に二つの穴を持つポリゴン](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/geomtypes/1.png)
 
 ```
 db=# SELECT ST_IsValid(
@@ -120,7 +120,7 @@ NOTICE:  Holes are nested at or near point 2 2
 (1 行)
 ```
 
-![穴の中にさらにリングを持つ不正ポリゴン](https://storage.googleapis.com/zenn-user-upload/mk0guap5fbzzqbytrvf6vq4dh35k)
+![穴の中にさらにリングを持つ不正ポリゴン](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/geomtypes/2.png)
 
 妥当ではありませんでした。
 

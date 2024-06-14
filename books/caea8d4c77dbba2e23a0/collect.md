@@ -7,7 +7,7 @@ title: "結合せずまとめる"
 
 もう少し見てみましょう。
 
-![インポートしたデータで福山市の島を選択した様子](https://storage.googleapis.com/zenn-user-upload/ru75rm0tkmmzi65fx7t43n4ozcpe)
+![インポートしたデータで福山市の島を選択した様子](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/collect/1.png)
 
 「福山市」がたくさん出ているうえ、ひとつの島を選択しています（福山市内海町に属します）が、本土側も仙酔島も何もかも選択されていません。
 
@@ -127,7 +127,7 @@ db=# INSERT INTO t1dc(n03_001, n03_002, n03_003, n03_004, n03_007, geom)
 
 QGISに出すと、次のようになりました。
 
-![ST_Collectを実行した結果](https://storage.googleapis.com/zenn-user-upload/6xcgjehm9nufhq1vj3e6e1ngdiyz)
+![ST_Collectを実行した結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/collect/2.png)
 
 ひとつのジオメトリを選択していますが、福山市全域が選択されました。これで福山市全域がひとつのマルチポリゴンになっていることが分かります。
 

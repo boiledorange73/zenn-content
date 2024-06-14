@@ -17,7 +17,7 @@ PostGISでは、数値でなくジオメトリに対して足し算や引き算�
 
 ## ST_Union
 
-![ST_Unionの結果](https://storage.googleapis.com/zenn-user-upload/2606sovwnmim11nf4qdp7nrl40ad)
+![ST_Unionの結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/editor/1.png)
 
 ```psql
 db=# SELECT ST_AsText(
@@ -36,7 +36,7 @@ db=# SELECT ST_AsText(
 
 ## ST_Intersection
 
-![ST_Intersectionの結果](https://storage.googleapis.com/zenn-user-upload/xyln3ubv74n94cu6sg3n37t3lxxl)
+![ST_Intersectionの結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/editor/2.png)
 
 ```psql
 db=# SELECT ST_AsText(
@@ -55,7 +55,7 @@ db=# SELECT ST_AsText(
 
 ## ST_SymDifference
 
-![ST_SymDifferenceの結果](https://storage.googleapis.com/zenn-user-upload/qvr8pgima9foslpz0bkyqodc8kyq)
+![ST_SymDifferenceの結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/editor/3.png)
 
 ```psql
 db=# SELECT ST_AsText(
@@ -74,7 +74,7 @@ db=# SELECT ST_AsText(
 
 ## ST_Difference
 
-![ST_Differenceの結果](https://storage.googleapis.com/zenn-user-upload/eibc147ay1bxyz56smkrin490ua2)
+![ST_Differenceの結果](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/editor/4.png)
 
 ```psql
 db=# SELECT ST_AsText(
@@ -127,7 +127,7 @@ db=# CREATE TABLE tp (
 db=# INSERT INTO tp (geom) SELECT ST_Multi(ST_Union(geom)) FROM t1;
 ```
 
-![広島県ポリゴン](https://storage.googleapis.com/zenn-user-upload/txrbl9y2aav2t772zfwtyo1mu47r)
+![広島県ポリゴン](https://github.com/boiledorange73/zenn-content/raw/main/books-images/caea8d4c77dbba2e23a0/editor/5.png)
 
 南西地域に不思議な線が浮き出ていますが、現時点では無視して下さい。
 
