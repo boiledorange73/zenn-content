@@ -1,5 +1,5 @@
 title: "PostGIS入門"
-summary: "「PostGISを入れるところからやってみよう」を先にやってみることをお勧めします（リンク先は本書「はじめに」にあります）。"
+summary: "「PostGISをはじめてみよう」を先にやってみることをお勧めします（リンク先は本書「はじめに」にあります）。"
 topics: [PostGIS]
 published: true
 price: 0
@@ -12,6 +12,7 @@ chapters:
   - srs
   - testing
   - editor
+  - measurement
   - geog
   - geogfns
   - dump
