@@ -24,6 +24,10 @@ published: true
 
 ということで PostGIS で使える、地域メッシュコードからポリゴンを生成する関数を作成したので、その関数について解説します。
 
+# ソースのありか
+
+https://github.com/boiledorange73/pg_jpgrid にあります。
+
 # メッシュコードの正規表現
 
 ## 3次メッシュまで
