@@ -169,7 +169,7 @@ WHERE key_code IS NOT NULL AND (T001142001 ~ E'\\s*^[0-9]+\\s*$');
 
 これで多分OKです。
 
-![人口分布の図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/\apportioned/01-population.png)
+![人口分布の図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/apportioned/01-population.png)
 
 # 福山駅から半径1km以内の人口を計算する
 
@@ -188,7 +188,7 @@ db=# SELECT ST_Buffer('SRID=4326;POINT(133.36169 34.489)'::GEOGRAPHY, 1000)::GEO
 
 見てみましょう。
 
-![円の図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/\apportioned/02-circle.png)
+![円の図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/apportioned/02-circle.png)
 
 ## ビューを作成する
 
@@ -216,13 +216,13 @@ WHERE ST_Intersects(buff.geom, ppl2020.geom);
 
 ``geom`` カラムは、円とインタセクトしたグリッドを四角形のまま保存しています。これを図示すると次の通りです。
 
-![円とインタセクトしているグリッドの図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/\apportioned/03-intersected-grids.png)
+![円とインタセクトしているグリッドの図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/apportioned/03-intersected-grids.png)
 
 ``geom``に対応する人口は``population``ですが、``population``で積算すると、円の外側の人口も積算することになります。
 
 ``intersection``カラムは、円とグリッドのインタセクトした部分だけを保存しています。これを図示すると次の通りです。
 
-![円とのインタセクトした部分の図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/\apportioned/04-intersection.png)
+![円とのインタセクトした部分の図](https://github.com/boiledorange73/zenn-content/raw/main/books-images/pgis-cookbook/apportioned/04-intersection.png)
 
 ``intersection``に対応する人口は``apportioned``カラムにあります。
 
