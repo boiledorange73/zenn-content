@@ -318,7 +318,7 @@ db=# SELECT SUM(apportioned) FROM v_ppl2020_1;
 
 # 参照
 
-* 。[PostGIS入門](../../caea8d4c77dbba2e23a0) / [ジオグラフィを引数に取ることができる関数](../../caea8d4c77dbba2e23a0/viewer/geogfns)
+* [PostGIS入門](../../caea8d4c77dbba2e23a0) / [ジオグラフィを引数に取ることができる関数](../../caea8d4c77dbba2e23a0/viewer/geogfns)
 
 # 出典
 
