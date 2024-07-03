@@ -2,9 +2,17 @@
 title: "booksの更新情報"
 emoji: "✨"
 type: "idea"
-topics: [GIS]
+topics: [新着情報]
 published: true
 ---
+
+# 更新情報
+
++ 2024/7/3 [PostGIS料理帳](https://zenn.dev/boiledorange73/books/pgis-cookbook) 「福山駅から半径1kmの圏内の人口を計算する」を追加しました。
+
+# 過去の更新情報
+
++ 2024/6/14 [PostGIS入門](https://zenn.dev/boiledorange73/books/caea8d4c77dbba2e23a0) 「ジオメトリ計測関数」を追加しました。
 
 # この記事の説明および読み方
 
@@ -14,9 +22,6 @@ published: true
 
 ただ、あまり小規模な更新は書きません。
 
-# 更新情報
-
-+ 2024/6/14 [PostGIS入門](https://zenn.dev/boiledorange73/books/caea8d4c77dbba2e23a0) 「ジオメトリ計測関数」を追加しました。
 
 # 本記事のライセンス
 
