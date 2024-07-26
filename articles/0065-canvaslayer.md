@@ -1,5 +1,5 @@
 ---
-title: "グリッドレイヤを作るならcanvasレイヤがいいと思う"
+title: "グリッドレイヤを作るなら非タイルcanvasレイヤがいいと思う"
 emoji: "😀"
 type: "tech"
 topics: [Leaflet,GIS]
@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-https://github.com/boiledorange73/Layer.JPGrid/ にて地域メッシュコードを表示するレイヤを表示しています。また、これの使用例を https://boiledorange73.github.io/Layer.JPGrid/ で見ることができます。
+https://github.com/boiledorange73/L.Layer.JPGrid/ にて地域メッシュコードを表示するレイヤを表示しています。また、これの使用例を https://boiledorange73.github.io/L.Layer.JPGrid/ で見ることができます。
 
 地域メッシュコードについての詳細情報は https://ja.wikipedia.org/wiki/%E5%9C%B0%E5%9F%9F%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5 をご覧下さい。
 
@@ -26,7 +26,7 @@ https://github.com/boiledorange73/Layer.JPGrid/ にて地域メッシュコー�
 
 # 描画ルーチンを見る
 
-https://github.com/boiledorange73/Layer.JPGrid/blob/main/BO.L.Layer.Grid.js
+https://github.com/boiledorange73/L.Layer.JPGrid/blob/main/BO.L.Layer.Grid.js
 
 の ``_draw()`` を見ていきます。
 
@@ -251,7 +251,7 @@ canvas要素は、地図の移動や拡大縮小に合わせて、左上位置�
 
 これより前のコードは Grid レイヤで、地域メッシュコードレイヤは、これを継承した JPGrid レイヤです。
 
-https://github.com/boiledorange73/Layer.JPGrid/blob/main/BO.L.Layer.JPGrid.js
+https://github.com/boiledorange73/L.Layer.JPGrid/blob/main/BO.L.Layer.JPGrid.js
 
 ここでは、このレイヤの ``drawOne`` を見ます。
 
@@ -298,7 +298,7 @@ canvas要素を使った Leaflet レイヤを作ってみました。グリッ�
 
 今回は地域メッシュコードのレイヤでしたが、他のグリッドレイヤにも応用できると思います。
 
-最後に、繰り返しになりますが https://boiledorange73.github.io/Layer.JPGrid/ で、地域メッシュコード地図を見ることができます。実用的な速度で動作しているものと信じています (断定してない)。ふと地域メッシュコードが知りたくなった時に使えるものと思います。
+最後に、繰り返しになりますが https://boiledorange73.github.io/L.Layer.JPGrid/ で、地域メッシュコード地図を見ることができます。実用的な速度で動作しているものと信じています (断定してない)。ふと地域メッシュコードが知りたくなった時に使えるものと思います。
 
 ## 他サイトの地域メッシュコードを見るアプリ
 
