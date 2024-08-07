@@ -103,6 +103,7 @@ Windowsのコマンドプロンプトや、それを元にしている OSGeo4W S
 ```batch
 > set PGCLIENTENCODING=UTF8
 > psql -d db -f N03-14_34_140401.sql
+```
 
 # テーブル作成とデータコピーを分離する
 
