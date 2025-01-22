@@ -60,7 +60,7 @@ FROM dem;
 
 ## ST_MapAlgebraExpr()
 
-さきほどのクエリで``ST_MapAlgebraExpr()``というものが出ていました。この関数について見てみましょう。詳細については、たとえば http://aginfo.cgk.affrc.go.jp/docs/pgisman/3.0.0/RT_ST_MapAlgebraExpr.html を参照して下さい。
+さきほどのクエリで``ST_MapAlgebraExpr()``というものが出ていました。この関数について見てみましょう。詳細については、たとえば https://postgis.net/docs/ja/RT_ST_MapAlgebraExpr.html を参照して下さい。
 
 ``band``を指定する形式と``band``を指定しない形式があり、それぞれ次のような宣言になっています。
 
