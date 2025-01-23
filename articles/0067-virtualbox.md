@@ -2,7 +2,7 @@
 title: "試験用サーバを VirtualBox で立ち上げる"
 emoji: "😀"
 type: "tech"
-topics: [PostGIS,GIS]
+topics: [FreeBSD,VirtualBox,Windows]
 published: true
 ---
 
