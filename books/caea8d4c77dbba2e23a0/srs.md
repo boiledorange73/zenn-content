@@ -71,9 +71,9 @@ CRS (Coordinate Reference System)とSRSは同じと考えてください。ま�
 
 上述しましたが、SRIDは空間参照系識別コードです。本来は複数のオーソリティの存在を想定して、"(オーソリティ):(整数コード)"とし、オーソリティ間のコード重複を回避するのですが、EPSGがオーソリティのコード体系で十分ですので、SRID=EPSGコードで、オーソリティは略する、と考えても問題ありません。
 
-EPSGコードは、European Petroleum Survey Group (EPSG)が管理していましたが、EPSGはInternational Association of Oil and Gas Procuders (OGP)が吸収したため、現在はOGPが管理しています。
+EPSGコードは、European Petroleum Survey Group (EPSG)が管理していましたが、EPSGはInternational Association of Oil and Gas Procuders (IOGP)が吸収したため、現在はIOGPが管理しています。
 
-EPSGオフィシャルの空間参照系レジストリの検索サービスは http://www.epsg-registry.org/ にあります。
+EPSGオフィシャルの空間参照系レジストリの検索サービスは [https://epsg.org/](https://epsg.org/) にあります。
 
 # わが国でよく使われる空間参照系
 
