@@ -123,7 +123,7 @@ CREATE TABLE firestation_voronoi6690 (
 CREATE INDEX ON firestation_voronoi6690 USING GiST (geom);
 ```
 
-ボロノイ領域の生成は ``ST_VoronoiPolygons()`` (https://postgis.net/docs/ja/ST_VoronoiPolygons.html) で行いますが、引数はマルチポイントです。マルチポイントを作るには、ポイントを集計関数 ``ST_Collect(geom)`` でまとめます。
+ボロノイ領域の生成は ``ST_VoronoiPolygons()`` (https://postgis.net/docs/ja/ST_VoronoiPolygons.html) で行いますが、引数はマルチポイントです。マルチポイントを作るには、ポイントを集約関数 ``ST_Collect(geom)`` でまとめます。
 
 同時に実行するには ``ST_VoronoiPolygons(ST_Collect(geom))`` とします。
 
