@@ -1,0 +1,16 @@
+title: "PostGIS中級（工事中）"
+summary: "「PostGIS入門」をご覧になったのを前提にしています。"
+topics: [PostGIS]
+published: false
+price: 0
+# 一時的に設定
+allow_override: false
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
+  - ewkb
+  - geomtypes-a
+  - gtcor
+  - srs-a
+  - conclusion
+
