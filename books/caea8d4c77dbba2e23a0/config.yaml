@@ -19,7 +19,6 @@ chapters:
   - collect
   - delcrack
   - within
-  - conv-wkt-geom
   - conv-ewkt-geom
   - inpect-ewkt
   - conclusion
