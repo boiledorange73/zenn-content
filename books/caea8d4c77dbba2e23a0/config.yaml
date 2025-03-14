@@ -10,6 +10,7 @@ chapters:
   - introduction
   - geomtypes
   - srs
+  - conv-ewkt-geom
   - testing
   - editor
   - measurement
@@ -19,7 +20,6 @@ chapters:
   - collect
   - delcrack
   - within
-  - conv-ewkt-geom
   - inpect-ewkt
   - conclusion
   - app-a-srs-cs
