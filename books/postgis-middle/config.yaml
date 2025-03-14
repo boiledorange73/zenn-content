@@ -10,6 +10,7 @@ chapters:
   - introduction
   - ewkb
   - geomtypes-a
-  - gtcor
+  - multi-single
+  - geomcol
   - conclusion
 
