@@ -16,6 +16,7 @@ chapters:
   - measurement
   - geog
   - geogfns
+  - spatial-index
   - dump
   - collect
   - delcrack
