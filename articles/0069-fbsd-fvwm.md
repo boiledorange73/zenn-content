@@ -31,6 +31,8 @@ published: true
 まず、ネットワーク設定を開きます。
 左端のインスタンスが並ぶ列で「ツール」と書かれてるボタンの右端（アイコンが何かの項目一覧を示しているような絵になってる箇所」）をクリックして「ネットワーク」を選択します。
 
+![設定を開く手順の図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0069/01-netpref.png)
+
 次に「ホストオンリーネットワーク」タブを選択すると、ホストオンリーネットワークの一覧に "VirtualBox Host-Only Adapter" があるので、これを選択します。
 
 設定が下部に出るので次のようにします。
