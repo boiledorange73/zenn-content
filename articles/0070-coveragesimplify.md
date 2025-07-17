@@ -3,12 +3,18 @@ title: "ST_CoverageSimplifyで単純化してみよう"
 emoji: "😀"
 type: "tech"
 topics: [PostGIS,GIS]
-published: false
+published: true
 ---
 
 # はじめに
 
 これまで ``ST_CoverageSimplify`` の記事を書こうと思いつつサボりまくっていましたが、ここに来てなんとなく実行すると、重なりも隙間もできないうえにめちゃくちゃ早かったので、ここに記す。
+
+## 使用関数
+
+- [ST_CoverageSimplify](https://postgis.net/docs/ja/ST_CoverageSimplify.html)
+
+``ST_CoverageSimplify()`` は、ポリゴンカバレッジ使っているもので、PostGIS 3.4以上 + GEOS 3.12.0以上 でないと使用できません。
 
 # 全国市区町村ポリゴンを叩き込む
 
@@ -148,6 +154,68 @@ QGISで透明度50%のレイヤを作ります。こうすると重複部分の�
 
 いいかんじですね。
 
+# 都道府県ポリゴンを作るときにもポリゴンカバレッジ
+
+``ST_CoverageSimplify()``と``ST_CoverageInvalidEdges()``とを見ていると、``ST_CoverageUnion()``というのも見つかりました。**結合 (UNION) が高速になる**んだって。
+
+ではやってみましょう。
+
+```
+CREATE TABLE pref3395 (
+  gid SERIAL PRIMARY KEY,
+  pcode TEXT,
+  pname TEXT, -- n03_001
+  geom GEOMETRY(MULTIPOLYGON, 3395)
+);
+CREATE INDEX ON pref3395 USING GiST(geom);
+CREATE INDEX ON pref3395 (pcode);
+CREATE INDEX ON pref3395 (pname);
+```
+
+```
+INSERT INTO pref3395 (pname,geom)
+SELECT pname, ST_CoverageUnion(geom) geom
+FROM admarea3395 GROUP BY pname;
+```
+
+おう、手元の時計で 23秒 でした。
+
+あと、証拠写真を出しておきます。
+
+![都道府県でST_CoverageUnionで結合した図](https://github.com/boiledorange73/zenn-content/raw/main/articles-images/0070/02-union.png)
+
+
+## ST_Union() より速い
+
+これまでの ``ST_Union()`` だとどうなるでしょうか?
+
+```
+CREATE TABLE pref3395old (
+  gid SERIAL PRIMARY KEY,
+  pcode TEXT,
+  pname TEXT, -- n03_001
+  geom GEOMETRY(MULTIPOLYGON, 3395)
+);
+CREATE INDEX ON pref3395old USING GiST(geom);
+CREATE INDEX ON pref3395old (pcode);
+CREATE INDEX ON pref3395old (pname);
+
+INSERT INTO pref3395old (pname,geom)
+SELECT pname, ST_Union(geom) geom
+FROM admarea3395 GROUP BY pname;
+```
+
+67秒かかりました。
+
+``ST_CoverageUnion()``の方が速いのがわかりました。おそらく国土数値情報（行政区域）が非常にきれいなポリゴンだからできるのではないかと思います。
+
+# おわりに
+
+いかがだったでしょうか。
+
+重複部も隙間も発生しないのに高速な簡略化が可能になりました。あと、結合も高速化させられます。ポリゴンカバレッジ恐るべしですね。きれいなポリゴンだからできるのではないかと思いますが、異常チェックに``ST_CoverageInvalidEdges()``も用意はされているので、これで判定しながら進めるということになるでしょう。
+
+あと、3.6 で、ポリゴンカバレッジ関数で、重複部を無くし、隙間もなくす関数が出る予定です。
 
 # 本記事のライセンス
 
