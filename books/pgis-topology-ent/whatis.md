@@ -1,5 +1,5 @@
 ---
-title: "そもそもトポロジとは何やねん"
+title: "トポロジーってなんだろう?"
 ---
 
 # トポロジとジオメトリの違い
@@ -40,47 +40,134 @@ PostGISで扱うジオメトリは、データ構造上は互いに独立して�
 
 なお、ノードについては状況が異なり、複数エッジで共有されているノードは削除できません。また、PostGISの機能として、ノードの位置を変更してもエッジが変更されることがありません。
 
-# 準備
+# 共有とは
 
-使用するデータベースにPostGISエクステンションとPostGISトポロジエクステンションとを導入して下さい。
+## ノードをエッジが共有する
+
+たとえば次の図で考えます。
+
+![1番、2番、3番エッジが2番ノードを共有する図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/shared_node.png)
+
+2番ノードは、1番エッジの終端です。また、2番エッジの始端です。そして、3番エッジの始端でもあります。このように、始端でも終端でもいいですから、複数のエッジの端が同じノードだと、エッジがノードを共有していることになります。
+
+この共有情報は間接的にですがずっと保持されます。このため、エッジの形が変わる（たとえば直線だったのが波打ったり）ことがあっても、始端、終端は変わりません。不用意に始端または終端を変更させようとすると、エラーで止められます。
+
+面倒でしょうか？面倒に思うのでしたら、トポロジーを使う局面ではありません。**途中で止めてくれて助かると思う場合にだけトポロジーを使えばいい**のです。
+
+## エッジをフェイスが共有する
+
+さきほどはエッジがノードを共有していましたが、フェイスがエッジを共有することもあります。
+
+![1番、2番フェイスが1番エッジを共有する図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/shared_edge.png)
+
+1番エッジの進行方向左手に2番フェイス、右手に1番フェイスがあります。
+
+この共有情報も保持されます。このため、1番エッジの形状を変更した場合には、共有している1番フェイスと2番フェイスの両方の形状が変更されます。
+
+## ジオメトリーの簡略化
+
+次のように、左側の凸の5角形と右側の凹の5角形が接触しているとします。
+
+![凸の5角形と凹の5角形と接触している図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/smpl-geom-before.png)
+
+ここで「簡略化」を実行します。まず、ジオメトリーの場合を見てみましょう。
 
 ```
-postgres=# create database topologydb;
-CREATE DATABASE
-postgres=# \c topologydb
-データベース"topologydb"にユーザ"postgres"として接続しました。
-topologydb=# create extension postgis;
-CREATE EXTENSION
-topologydb=# create extension postgis_topology;
-CREATE EXTENSION
-topologydb=# 
+WITH Q1 AS (
+  SELECT 1 gid, 'POLYGON((0 0, 10 0, 15 5, 10 10, 0 10, 0 0))'::GEOMETRY geom
+  UNION SELECT 2 gid, 'POLYGON((10 0, 20 0, 20 10, 10 10, 15 5, 10 0))'::GEOMETRY geom
+)
+SELECT ST_AsEWKT(ST_Simplify(geom, 5)) FROM Q1;
 ```
 
-## topologyスキーマを見てみよう
+次のようになります。
 
-デフォルト(public)でなく、topologyという名前のスキーマを作り、そこに関数や内部使用データを格納します。
+![左側の3角形と右側の4角形とが接触ではなく突き刺さっているし隙間もできている図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/smpl-geom-after.png)
 
-```
-topologydb=# SELECT * FROM pg_tables WHERE schemaname='topology';
- schemaname | tablename | tableowner | tablespace | hasindexes | hasrules | hastriggers | rowsecurity
-------------+-----------+------------+------------+------------+----------+-------------+-------------
- topology   | topology  | postgres   |            | t          | f        | t           | f
- topology   | layer     | postgres   |            | t          | f        | t           | f
-(2 行)
-```
+ジオメトリーで簡略化をしようとすると、隙間やオーバーラップができやすいのです。なぜなら、相互に接触しているだなんて情報を一切持っていないためです。
 
-空っぽなのですが、それぞれのテーブルを見てみましょう。
+## トポロジーの簡略化
+
+これをトポロジーで実行してみましょう。まずはトポロジーの構築です。
 
 ```
-topologydb=# SELECT * FROM topology.topology;
- id | name | srid | precision | hasz
-----+------+------+-----------+------
-(0 行)
-
-
-topologydb=# SELECT * FROM topology.layer;
- topology_id | layer_id | schema_name | table_name | feature_column | feature_type | level | child_id
--------------+----------+-------------+------------+----------------+--------------+-------+----------
-(0 行)
+-- トポロジー生成
+SELECT topology.CreateTopology('topo9');
+-- トポロジー構築
+SELECT topology.ST_AddIsoNode('topo9', 0, 'POINT(0 0)');
+SELECT topology.ST_AddIsoNode('topo9', 0, 'POINT(10 0)');
+SELECT topology.ST_AddIsoNode('topo9', 0, 'POINT(10 10)');
+SELECT topology.ST_AddEdgeModFace('topo9', 1, 2, 'LINESTRING(0 0, 10 0)');
+SELECT topology.ST_AddEdgeModFace('topo9', 2, 3, 'LINESTRING(10 0, 15 5, 10 10)');
+SELECT topology.ST_AddEdgeModFace('topo9', 3, 1, 'LINESTRING(10 10, 0 10, 0 0)');
+SELECT topology.ST_AddEdgeModFace('topo9', 2, 3, 'LINESTRING(10 0, 20 0, 20 10, 10 10)');
 ```
 
+![凸の5角形と凹の5角形と接触しているトポロジー図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/smpl-tpl-before.png)
+
+ここから簡略化してみましょう。エッジを簡略化します。
+
+```
+-- 簡略化
+UPDATE topo9.edge_data SET geom = ST_Simplify(geom, 5);
+```
+
+そうすると、次のようになります。
+
+![長方形と長方形とが接触しているトポロジー図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/smpl-tpl-after.png)
+
+この通り、**隙間ができたり、突き刺さったりしていません**。接触が保たれています。
+
+# トポジオメトリーとレイヤー
+
+## トポジオメトリーでトポロジーをジオメトリーみたいに扱える
+
+トポロジーデータは、点、線、面の図形データと、これらの相互関係に関するデータだけでできていて、属性データはありません。
+
+トポロジーデータと属性データとを絡めるために、トポジオメトリーと言われるデータ型が用意されています。
+
+ジオメトリーの場合に、テーブルにジオメトリー型のカラムと、文字列型などの属性データのカラムとで一つのテーブルをなしています。そのジオメトリー型のところをトポジオメトリー型にすることで、トポロジーのノード、エッジ、フェイスで作られた図形をジオメトリーのように扱うことができます。
+
+## レイヤー
+
+さらに、トポジオメトリーは**レイヤーとも言われ**、市区町村レイヤーをもとに都道府県レイヤーを生成することができます。
+
+次の図では、仮想的な市区町村と都道府県を示しています。
+
+![左側が市区町村レイヤー、右側が都道府県レイヤーの例](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/layer.png)
+
+左側は、市区町村レイヤーで、市区町村が5件あって、コードが 1001, 1002, 2001, 2002, 3001 となっています。
+
+右側は、都道府県レイヤーで、3件の都道府県があり、都道府県名が、下県、上県、右上兼 となっています。
+
+このように市区町村データと都道府県データが同じトポロジーで実現できます。
+
+![市区町村レイヤーの形状が変更されると、都道府県レイヤーの形状も必要に応じて変更される図](https://raw.githubusercontent.com/boiledorange73/zenn-content/main/books-images/pgis-topology-ent/whatis/layer_edited.png)
+
+左側の 2001市 の形状が変更されると、それにあわせて上位レイヤーの 上県 の形状も変更されます。これがレイヤーの素敵なところです。
+
+また、左側の 1001市, 1002市 の間にあるエッジが変更されると、1001市, 1002市 の形状は変更されますが、下県の形状は変わりません。変わってはいけない場合には変わらないのも、レイヤーのいいところです。
+
+# トポロジーはほとんど使わないけどトポロジーでないと使えない場面があるけど多くはない
+
+- ノードは動かせない (仕様)。
+- エッジ同士は交差しない。クロスさせたいならクロス位置にノードを打って既存エッジを分割させ、追加されるエッジも分割させて登録する。
+- エッジの形が変わることがあっても、始端、終端は変えられない。
+- エッジの形が変わると関係するフェイスの形も変わる。
+- エッジが消えるとフェイスが消える (必ず消えるわけではない)。
+
+こう上げていくと、もしかしたら「特徴」のうち**「利点」と思われるところがほぼ無い**ように思います。いちどトポロジーを構築したら、そこから変更するのが非常に面倒くさいです。
+
+でも、だからこそ**安定した空間情報を保持することができる**わけです。
+
+さらに、レイヤーの概念を使いこなせれば、階層的な形状管理ができることになります。
+
+どういうところで活用できるかと言うと…私は**きっちりしたデータ**を管理する場合だと思います。市区町村ポリゴンのようにきっちり区分けされているところで使えそうです。市区町村と都道府県のようにきっちりと階層が存在しているところだとさらに使えそうです。
+
+逆に言うと、これぐらいの特別なケースでない限り、使う局面はないと思います。
+
+# おわりに
+
+ここではトポロジーって何やねんという話をしました。
+
+トポロジーは無理に使うものではあません。不要なら使ってはいけません。ただ、少しだけ触って、必要な時に使えるように準備するといいです。
