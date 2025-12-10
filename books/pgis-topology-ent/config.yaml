@@ -1,8 +1,0 @@
-title: "PostGIS トポロジ 入門"
-summary: "PostGISのトポロジエクステンションを触ってみましょう。"
-topics: [PostGIS, GIS]
-published: false
-price: 0
-# 本に含めるチャプターを順番に並べましょう
-chapters:
-  - whatis
