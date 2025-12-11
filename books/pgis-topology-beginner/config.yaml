@@ -5,15 +5,15 @@ published: true
 price: 0
 # 本に含めるチャプターを順番に並べましょう
 chapters:
-  - whatistopology
-  - editing
-  - columns
-  - topogeom
-  - simplify
-#  - whatis
-#  - build
-#  - inside
-#  - topogeo
-#  - layer
-#  - pref
-#  - conclusion
+#  - whatistopology
+#  - editing
+#  - columns
+#  - topogeom
+#  - simplify
+  - whatis
+  - build
+  - inside
+  - topogeo
+  - layer
+  - pref
+  - conclusion
