@@ -1,5 +1,6 @@
 title: "PostGISトポロジー入門"
-summary: "PostGISのトポロジーエクステンションを触ってみましょう。"
+summary: "PostGISのトポロジーエクステンションを触ってみましょう。2020/12/25公開ですが、現在は2025/12/12公開の第2版です。"
+"
 topics: [PostGIS, GIS]
 published: true
 price: 0
