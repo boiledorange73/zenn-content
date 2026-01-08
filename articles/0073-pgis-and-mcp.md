@@ -3,7 +3,7 @@ title: "MCP+PostGISで緯度経度に強いエージェントができるので�
 emoji: "😀"
 type: "tech"
 topics: [PostGIS,GIS,OpenAI,Claude,MCP]
-published: true
+published: false
 ---
 
 # はじめに
