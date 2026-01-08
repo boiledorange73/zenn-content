@@ -2,7 +2,7 @@
 title: "初めて簡易MCPサーバーを作ってOpenAIエージェントとつないでみる"
 emoji: "😀"
 type: "tech"
-topics: [PostGIS,GIS,OpenAI,Claude,MCP]
+topics: [OpenAI,MCP]
 published: true
 ---
 
