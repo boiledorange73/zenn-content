@@ -12,7 +12,7 @@ published: true
 
 # スクリプト
 
-'''html
+```html
 <html>
 <body>
 <script>
